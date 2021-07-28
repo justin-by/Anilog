@@ -9,7 +9,6 @@ print(animejson["data"]["Page"]["media"])
 
 
 
-# Adds a demo user, you can add other users here if you want
 def seed_anime():
 
     def check_trailer(anime):

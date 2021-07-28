@@ -1,6 +1,7 @@
 from flask.cli import AppGroup
 from .users import seed_users, undo_users
 from .anime import seed_anime, undo_anime
+from .characters import seed_characters, undo_characters
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -12,6 +13,7 @@ seed_commands = AppGroup('seed')
 def seed():
     seed_users()
     seed_anime()
+    seed_characters()
     # Add other seed functions here
 
 
@@ -20,4 +22,5 @@ def seed():
 def undo():
     undo_users()
     undo_anime()
+    undo_characters()
     # Add other undo functions here

@@ -75,7 +75,9 @@ const NavBar = ({ modalToggle }) => {
               </div>
             )}
             {sessionUser ? (
-                  <LogoutButton />
+              <>
+                  <img src='https://i.imgur.com/HnMCw1S.png' className='profile-icon'/>
+              </>
             ) : null}
         </div>
       </nav>

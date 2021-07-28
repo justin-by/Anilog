@@ -85,3 +85,8 @@ nav {
     color: white;
     transform: scale(1.03);
 }
+
+.profile-icon {
+    max-width: 65px;
+    width: 100%;
+}

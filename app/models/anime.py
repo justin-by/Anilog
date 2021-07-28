@@ -22,3 +22,23 @@ class Anime(db.Model):
 
     review = db.relationship('Review', back_populates='anime')
     character = db.relationship('Character', back_populates='anime')
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            'japTitle': self.japTitle,
+            'status': self.status,
+            'desc': self.desc,
+            'trailer': self.trailer,
+            'mediumPic': self.mediumPic,
+            'largePic': self.largePic,
+            'extraLargePic': self.extraLargePic,
+            'averageColor': self.averageColor,
+            'bannerPic': self.bannerPic,
+            'season': self.season,
+            'year': self.year,
+            'episodes': self.episodes,
+            'popularity': self.popularity,
+            'ranking': self.ranking
+        }
