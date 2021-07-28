@@ -12,7 +12,7 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
 
     review = db.relationship('Review', back_populates='user')
-    table_anime = db.relationship('table_anime', secondary='table_anime', back_populates='user')
+    table_anime = db.relationship('table_anime', secondary='table_anime', backref=db.backref('anime'))
 
     table_anime = db.Table('table_anime',
         db.Column('user_id', db.Integer, db.ForeignKey('users.id'), primary_key=True),

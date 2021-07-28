@@ -1,0 +1,183 @@
+  {
+    "data": {
+      "Page": {
+        "media": [
+          {
+            "id": 99730,
+            "trailer": {
+              "id": "lY8HQ0H8tPQ",
+              "site": "youtube"
+            },
+            "bannerImage": null,
+            "status": "FINISHED",
+            "description": "After the Earth was destroyed by mysterious alien lifeforms known as the Gauna, surviving remnants of the human race escaped to space in the enormous generation ship Sidonia.\nHaving drifted through space for millennia, the Sidonia found itself once more under attack from Gauna for the first time in a century.<br>\n<br>\nOnce again facing the threat of extinction, a temporary victory against the Gauna was eked out thanks to the human-Gauna hybrid Tsumugi Shiraui and ace Guardian mech pilot Nagate Tanikaze.<br>\n<br>\n10 years later...\nThe people of Sidonia enjoy a brief respite.\nPeaceful days pass, during which Tsumugi begins to realize her feelings for Nagate, who is now celebrated as a hero of Sidonia.\nHowever, as Captain Kobayashi has always known, as long as the Gauna remain, peace cannot last.<br>\n<br>\nThe decision is made: a final battle, upon which rests the fate of humanity's last survivors.\nAs the end approaches, will the crew be able to protect those they love?<br>\n<br>\n(Source: Polygon Pictures)",
+            "coverImage": {
+              "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx99730-pG6lazHo6pKG.jpg",
+              "large": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx99730-pG6lazHo6pKG.jpg",
+              "medium": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/small/bx99730-pG6lazHo6pKG.jpg",
+              "color": "#e45d86"
+            },
+            "characters": {
+              "nodes": [
+                {
+                  "name": {
+                    "full": "Nagate Tanikaze"
+                  },
+                  "image": {
+                    "large": "https://s4.anilist.co/file/anilistcdn/character/large/b22249-VojlIxxywk8N.jpg",
+                    "medium": "https://s4.anilist.co/file/anilistcdn/character/medium/b22249-VojlIxxywk8N.jpg"
+                  }
+                },
+                {
+                  "name": {
+                    "full": "Norio Kunato"
+                  },
+                  "image": {
+                    "large": "https://s4.anilist.co/file/anilistcdn/character/large/n87685-4NZpYQGcHHZx.jpg",
+                    "medium": "https://s4.anilist.co/file/anilistcdn/character/medium/n87685-4NZpYQGcHHZx.jpg"
+                  }
+                },
+                {
+                  "name": {
+                    "full": "Lala Hiyama"
+                  },
+                  "image": {
+                    "large": "https://s4.anilist.co/file/anilistcdn/character/large/87679.jpg",
+                    "medium": "https://s4.anilist.co/file/anilistcdn/character/medium/87679.jpg"
+                  }
+                },
+                {
+                  "name": {
+                    "full": "Sasaki"
+                  },
+                  "image": {
+                    "large": "https://s4.anilist.co/file/anilistcdn/character/large/b87689-oO1BLj62oQv6.jpg",
+                    "medium": "https://s4.anilist.co/file/anilistcdn/character/medium/b87689-oO1BLj62oQv6.jpg"
+                  }
+                },
+                {
+                  "name": {
+                    "full": "Izana Shinatose"
+                  },
+                  "image": {
+                    "large": "https://s4.anilist.co/file/anilistcdn/character/large/n30573-ifuQ751oEqJ0.jpg",
+                    "medium": "https://s4.anilist.co/file/anilistcdn/character/medium/n30573-ifuQ751oEqJ0.jpg"
+                  }
+                },
+                {
+                  "name": {
+                    "full": "Ochiai"
+                  },
+                  "image": {
+                    "large": "https://s4.anilist.co/file/anilistcdn/character/large/87686.jpg",
+                    "medium": "https://s4.anilist.co/file/anilistcdn/character/medium/87686.jpg"
+                  }
+                },
+                {
+                  "name": {
+                    "full": "Ittan Samari"
+                  },
+                  "image": {
+                    "large": "https://s4.anilist.co/file/anilistcdn/character/large/n87688-QTOTX2Jq8LGN.jpg",
+                    "medium": "https://s4.anilist.co/file/anilistcdn/character/medium/n87688-QTOTX2Jq8LGN.jpg"
+                  }
+                },
+                {
+                  "name": {
+                    "full": "Yuhata Midorikawa"
+                  },
+                  "image": {
+                    "large": "https://s4.anilist.co/file/anilistcdn/character/large/n81055-jYsCC4PZlCsx.png",
+                    "medium": "https://s4.anilist.co/file/anilistcdn/character/medium/n81055-jYsCC4PZlCsx.png"
+                  }
+                },
+                {
+                  "name": {
+                    "full": "Tsumugi Shiraui"
+                  },
+                  "image": {
+                    "large": "https://s4.anilist.co/file/anilistcdn/character/large/n88913-iIbGt5ZxZj5W.png",
+                    "medium": "https://s4.anilist.co/file/anilistcdn/character/medium/n88913-iIbGt5ZxZj5W.png"
+                  }
+                },
+                {
+                  "name": {
+                    "full": "Kairi Hamagata"
+                  },
+                  "image": {
+                    "large": "https://s4.anilist.co/file/anilistcdn/character/large/b204672-jz9yqkWhX4Ew.jpg",
+                    "medium": "https://s4.anilist.co/file/anilistcdn/character/medium/b204672-jz9yqkWhX4Ew.jpg"
+                  }
+                },
+                {
+                  "name": {
+                    "full": "Itsuki Hanma"
+                  },
+                  "image": {
+                    "large": "https://s4.anilist.co/file/anilistcdn/character/large/b204674-Xv7xCDXCLMdS.jpg",
+                    "medium": "https://s4.anilist.co/file/anilistcdn/character/medium/b204674-Xv7xCDXCLMdS.jpg"
+                  }
+                },
+                {
+                  "name": {
+                    "full": "Toutarou Yamano"
+                  },
+                  "image": {
+                    "large": "https://s4.anilist.co/file/anilistcdn/character/large/b204675-hwXcfl4aLHaQ.jpg",
+                    "medium": "https://s4.anilist.co/file/anilistcdn/character/medium/b204675-hwXcfl4aLHaQ.jpg"
+                  }
+                },
+                {
+                  "name": {
+                    "full": "Iroha Hashine"
+                  },
+                  "image": {
+                    "large": "https://s4.anilist.co/file/anilistcdn/character/large/b204676-0mgCZeh08DJ1.jpg",
+                    "medium": "https://s4.anilist.co/file/anilistcdn/character/medium/b204676-0mgCZeh08DJ1.jpg"
+                  }
+                }
+              ]
+            },
+            "season": "SPRING",
+            "seasonYear": 2021,
+            "episodes": 1,
+            "genres": [
+              "Action",
+              "Drama",
+              "Mecha",
+              "Sci-Fi"
+            ],
+            "popularity": 4400,
+            "averageScore": null,
+            "rankings": [
+              {
+                "id": 16504,
+                "rank": 18
+              }
+            ],
+            "startDate": {
+              "year": 2021,
+              "month": 6,
+              "day": 4
+            },
+            "studios": {
+              "nodes": [
+                {
+                  "name": "POLYGON PICTURES"
+                },
+                {
+                  "name": "King Records"
+                },
+                {
+                  "name": "Klock Worx"
+                }
+              ]
+            },
+            "title": {
+              "romaji": "Sidonia no Kishi: Ai Tsumugu Hoshi",
+              "native": "シドニアの騎士 あいつむぐほし"
+            }
+          }]
+      }
+    }
+  }

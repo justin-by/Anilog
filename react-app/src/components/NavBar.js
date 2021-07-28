@@ -32,7 +32,7 @@ const NavBar = ({ modalToggle }) => {
       <nav>
         <div className='nav-wrapper'>
           <div className='logo-container'>
-            <NavLink id="logo-nav-link" to="/" exact={true} activeClassName="active">
+            <NavLink id="logo-nav-link" to="/" exact={true} style={{ textDecoration: 'none' }}>
               <div>
                 LPlaceholder
               </div>
@@ -40,12 +40,12 @@ const NavBar = ({ modalToggle }) => {
           </div>
 
           <div className='navlinks-container'>
-              <NavLink to="/" exact={true} activeClassName="active">
+              <NavLink to="/" exact={true} style={{ textDecoration: 'none' }} activeClassName="active">
                 <span id="home-button" className="nav-links">
                   Home
                 </span>
               </NavLink>
-              <NavLink to="/search/anime" exact={true} activeClassName="active">
+              <NavLink to="/search/anime" exact={true} style={{ textDecoration: 'none' }} activeClassName="active">
                 <span id="browse-button" className="nav-links">
                   Browse
                 </span>
@@ -65,7 +65,7 @@ const NavBar = ({ modalToggle }) => {
 
                   <button
                     id="signup-button"
-                    className="nav-button"
+                    className="nav-button signup-button"
                     onClick={showForm}
                     value="signup"
                   >

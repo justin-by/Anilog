@@ -11,10 +11,3 @@ class Review(db.Model):
 
     user = db.relationship('User', back_populates='review')
     anime = db.relationship('Anime', back_populates='review')
-
-    # def to_dict(self):
-    #     return {
-    #         'id': self.id,
-    #         'username': self.username,
-    #         'email': self.email
-    #     }
