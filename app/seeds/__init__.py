@@ -19,5 +19,5 @@ def seed():
 @seed_commands.command('undo')
 def undo():
     undo_users()
-    undo_anime
+    undo_anime()
     # Add other undo functions here
