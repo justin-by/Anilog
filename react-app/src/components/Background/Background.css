@@ -1,0 +1,31 @@
+.background {
+    background-color: #0b1622;
+    position: absolute;
+    min-height: 100vh;
+    width: 100vw;
+    top: 75px;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    color: white;
+    margin: 0 auto;
+    min-width: 320px;
+    width: 100%;
+    z-index: 10;
+
+}
+
+@media (max-width: 1540px) {
+.container {
+    padding-left: 30px;
+    padding-right: 30px;
+    }
+}
+
+@media (min-width: 1040px) and (max-width: 1540px) {
+.container {
+    max-width: 1140px;
+    }
+}

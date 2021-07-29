@@ -7,7 +7,7 @@ import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 // import UsersList from './components/UsersList';
 import User from './components/User';
-import HomePage from './components/HomePage/HomePage';
+import Background from './components/Background/Background';
 import { authenticate } from './store/session';
 
 function App() {
@@ -28,12 +28,13 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+      <Background />
       <Switch>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
         <Route path='/' exact={true} >
-          <HomePage />
+          <Background />
         </Route>
       </Switch>
     </BrowserRouter>
