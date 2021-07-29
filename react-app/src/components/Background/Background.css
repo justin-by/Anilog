@@ -9,11 +9,11 @@
 }
 
 .container {
-    color: white;
+    background-color: white;
     margin: 0 auto;
+    height: 100vh;
     min-width: 320px;
-    width: 100%;
-    z-index: 10;
+    width: 70%;
 
 }
 

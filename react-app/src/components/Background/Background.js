@@ -1,5 +1,4 @@
 import './Background.css'
-import NavBar from '../NavBar'
 
 const HomePage = () => {
 
