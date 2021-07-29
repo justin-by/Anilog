@@ -1,3 +1,4 @@
+import ReviewsContent from '../ReviewsContent/ReviewsContent';
 import './AnimePage.css'
 
 const AnimePage = () => {
@@ -35,7 +36,7 @@ const AnimePage = () => {
                     <div className='anime-side-info'>
                     </div>
                     <div className='main-content-background'>
-
+                        <ReviewsContent />
                     </div>
 
                 </div>

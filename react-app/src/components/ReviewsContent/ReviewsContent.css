@@ -1,0 +1,25 @@
+.reviews-content {
+    width: 80%;
+    height: 100%;
+    background-color: burlywood;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.reviews-container {
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    width: 80%;
+    height: 95vh;
+    background-color: cornsilk;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
