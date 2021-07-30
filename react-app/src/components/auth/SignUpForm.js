@@ -55,12 +55,7 @@ const SignUpForm = ({ showModal, setShowModal }) => {
 
   return (
     <form id="signup-form" onSubmit={onSignUp}>
-      <div id="signup-header">
-        <div>
-          LPlaceholder
-        </div>
-      </div>
-      <div id="signup-form-title">Start learning now!</div>
+      <div id="signup-form-title">Sign up to access features!</div>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
@@ -103,8 +98,8 @@ const SignUpForm = ({ showModal, setShowModal }) => {
           required={true}
         ></input>
       </div>
-      <div id="signup-button-div">
-        <button type="submit">Sign Up</button>
+      <div id="signup-button-div" onClick={(e) => onSignUp(e)}>
+        Sign Up
       </div>
     </form>
   );

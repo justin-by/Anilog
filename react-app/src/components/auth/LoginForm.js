@@ -17,15 +17,13 @@ const LoginForm = ({ setForm, setShowModal }) => {
 
     const data = dispatch(login(email, password));
 
-    console.log(email,password)
-
     if (data) {
       setErrors(data);
     }
     if(errors.length === 0)setShowModal(false);
   };
 
-  const demoLogin = () => {
+  const demoLogin = (e) => {
     setEmail("demo@aa.io")
     setPassword("password")
 
@@ -42,11 +40,6 @@ const LoginForm = ({ setForm, setShowModal }) => {
 
   return (
     <form id="login-form" onSubmit={onLogin}>
-      <div id="login-header">
-        <div>
-          LPlaceholder
-        </div>
-      </div>
       <div id="login-form-title">
         Welcome Back!
       </div>
@@ -81,20 +74,14 @@ const LoginForm = ({ setForm, setShowModal }) => {
           onChange={updatePassword}
         />
       </div>
-      <Link to="/signup">
-        <p
-          onClick={() => {
-            setForm("signup");
-          }}
-        >
+        <p onClick={() => {setForm("signup")}} className='redirect-signup'>
           Don't have an account? Click here to sign up!
         </p>
-      </Link>
-      <div id="login-button-div">
-        <button type="submit">Login</button>
+      <div id="login-button-div" onClick={(e) => onLogin(e)}>
+        Login
       </div>
-      <div id="demo-button-div">
-        <button onClick={demoLogin} type="submit">Demo</button>
+      <div id="demo-button-div" onClick={(e) => demoLogin(e)}>
+        Demo
       </div>
     </form>
   );
