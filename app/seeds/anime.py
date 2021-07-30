@@ -5,7 +5,6 @@ myjsonfile=open('app/seeds/animeseed.json', 'r')
 jsondata=myjsonfile.read()
 
 animejson=json.loads(jsondata)
-print(animejson["data"]["Page"]["media"])
 
 
 
@@ -25,7 +24,7 @@ def seed_anime():
             averageColor=anime["coverImage"]["color"], bannerPic=anime["bannerImage"], season=anime["season"], year=anime["seasonYear"],
             episodes=anime["episodes"], popularity=anime["popularity"], ranking=anime["rankings"][0]["rank"] if anime["rankings"] else None)
         db.session.add(anime)
-        db.session.commit()
+    db.session.commit()
 
 
 # Uses a raw SQL query to TRUNCATE the users table.

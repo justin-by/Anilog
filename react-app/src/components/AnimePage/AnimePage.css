@@ -1,4 +1,4 @@
-.background {
+.background1 {
     background-color: #0b1622;
     position: relative;
     min-height: 100vh;
@@ -8,7 +8,7 @@
     margin: 0;
 }
 
-.container {
+.container1 {
     position: relative;
     background-color: white;
     padding: 0;

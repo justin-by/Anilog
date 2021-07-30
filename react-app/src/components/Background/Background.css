@@ -17,13 +17,6 @@
 
 }
 
-@media (max-width: 1540px) {
-.container {
-    padding-left: 30px;
-    padding-right: 30px;
-    }
-}
-
 @media (min-width: 1040px) and (max-width: 1540px) {
 .container {
     max-width: 1140px;

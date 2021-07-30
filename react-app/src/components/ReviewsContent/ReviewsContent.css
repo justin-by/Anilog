@@ -1,6 +1,4 @@
 .reviews-content {
-    width: 80%;
-    height: 100%;
     background-color: burlywood;
     margin: 0 auto;
     display: flex;
@@ -14,12 +12,44 @@
     margin-top: 50px;
     margin-left: 50px;
     margin-right: 50px;
-    width: 80%;
-    height: 95vh;
     background-color: cornsilk;
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
     width: 100%;
+    flex-wrap: wrap;
+}
+
+.anime-review {
+    background-color: #151f2e;
+    width: 45%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .2s;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    margin-bottom: 15px;
+}
+
+.anime-review-content {
+    font-style: italic;
+    color: rgba(114,138,161, 1);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.anime-review-rating {
+    color: rgb(184, 184, 184);
+    margin-right: 15px;
+}
+
+.fa-pencil-alt, .fa-trash-alt {
+    color: gray;
+    margin-right: 20px;
+}
+
+.review-extra {
+    display: flex;
+    justify-content: space-between;
 }
