@@ -195,6 +195,23 @@
     margin-bottom: 0px;
     height: 4vh;
   }
+
+  div#post-review-div {
+    background-color: #3577ff;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 0px;
+    padding: 25px 25px;
+    display: flex;
+    justify-content: center;
+    width: 45%;
+    margin-bottom: 0px;
+    height: 4vh;
+  }
   
   
   #add-deck-title-div, #add-deck-category-div {
@@ -217,4 +234,13 @@
 
   .redirect-signup:hover {
     cursor: pointer;
+  }
+
+  .review-error {
+    text-align:center;
+    font-size: 15px;
+    font-weight: bold;
+    width:100%;
+    margin: 20px 0 0 0 ;
+    color: #e48282;
   }

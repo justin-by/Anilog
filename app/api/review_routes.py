@@ -1,7 +1,19 @@
 from flask import Blueprint, request, jsonify
 from app.models import Anime, Review, db
+from app.forms import ReviewForm
+from flask_login import login_required, current_user
 
 review_routes = Blueprint('review', __name__)
+
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(error)
+    return errorMessages
 
 # Find all reviews of an anime based on animeId
 @review_routes.route('/anime/<int:animeId>')
@@ -16,6 +28,22 @@ def anime_review(reviewId, animeId):
     db.session.commit();
     return {'reviews': review.to_dict()}
     
+@review_routes.route('/anime/<int:animeId>', methods=["POST"])
+@login_required
+def create_review(animeId):
+    print('Hello 222222')
+    form = ReviewForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+    if form.validate_on_submit():
+        review = Review(userId=current_user.id, animeId=animeId, content=form.data["content"], rating=form.data["rating"])
+        db.session.add(review)
+        db.session.commit()
+        return {"review": review.to_dict()}
+    print(f'NEWWWWWWWWWWW {form.errors}')
+    return {"errors": validation_errors_to_error_messages(form.errors)}, 401
+    
+
+
 # @review_routes.route('<int:reviewId>/anime/<int:animeId>/', methods=["PUT"])
 # def anime_review(reviewId, animeId):
 #     review = Review.query.filter_by(id=reviewId).first();

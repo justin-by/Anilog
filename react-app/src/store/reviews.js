@@ -31,6 +31,25 @@ export const deleteAnimeReview = (reviewId, animeId) => async (dispatch) => {
     }
 }
 
+export const addNewReview = (newReview, animeId) => async (dispatch) => {
+    const res = await fetch(`/api/reviews/anime/${animeId}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newReview)
+    })
+
+    if (res.ok) {
+        dispatch(getAnimeReviews(animeId))
+        return null;
+    } else {
+        const data = await res.json()
+        console.log('FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF', data.errors)
+        if (data.errors) return data
+    }
+}
+
 const initialState = {};
 
 // Define a reducer

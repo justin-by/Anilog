@@ -39,6 +39,11 @@
     padding-right: 10px;
 }
 
+
+.anime-review-content:hover {
+    cursor: pointer;
+    color: rgb(184, 184, 184);
+}
 .anime-review-rating {
     color: rgb(184, 184, 184);
     margin-right: 15px;

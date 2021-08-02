@@ -1,70 +1,83 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import * as reviewActions from "../../store/reviews";
 
 
 
-const AddReviewModal = ({setShowModal}) => {
-    const [errors, setErrors] = useState([]);
-    const [title, setTitle] = useState("");
-    const [categoryId, setCategoryId] = useState(1);
-    const dispatch = useDispatch();
-    const sessionUser = useSelector(state => state.session.user)
+const AddReviewModal = ({ showModal, setShowModal, animeId }) => {
+  const [errors, setErrors] = useState([]);
+  const [content, setContent] = useState("");
+  const [rating, setRating] = useState(0);
+  const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user)
+
+  useEffect(() => {
+    return () => {
+      if (!showModal) {
+        setShowModal(true);
+      }
+    };
+  }, [showModal, setShowModal]);
 
 
-    const onSubmit = (e) => {
-        e.preventDefault();
-        const data = dispatch(
-        //   deckActions.addNewDeck({ title, category: categoryId, userId: sessionUser.id  })
-        );
-        if (data) {
-          setErrors(data.errors);
-        }
-        if (errors.length === 0) setShowModal(false);
-      };
-    
-      const updateTitle = (e) => {
-        setTitle(e.target.value);
-      };
-    
-      const updateCategoryId = (e) => {
-        setCategoryId(e.target.value);
-      };
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const data = await dispatch(reviewActions.addNewReview({ content, rating }, animeId));
+    if (data) {
+      setErrors(data.errors);
+      console.log(errors)
+    } else {
+      setShowModal(false);
+    }
+  };
+
+  const updateContent = (e) => {
+    setContent(e.target.value);
+  };
+
+  const updateRating = (e) => {
+    setRating(Number(e.target.value));
+  };
 
 
-    return (
-        <form id="add-deck-form" onSubmit={onSubmit}>
-          <div id="add-deck-header">
-          </div>
-          <div id="add-deck-form-title">Enter Deck Details</div>
-          {errors.length > 0 ? (
-            <div>
-              {errors.map((error, ind) => (
-                <div key={ind}>{error}</div>
-              ))}
-            </div>
-          ) : null}
-          <div id="add-deck-title-div">
-            <div>
-              <label htmlFor="title">Title</label>
-            </div>
-            <input
-              name="title"
-              type="text"
-              placeholder="Title"
-              value={title}
-              onChange={updateTitle}
-            />
-          </div>
-          <div id="add-deck-category-div">
-            <div>
-              <label htmlFor="category">Category</label>
-            </div>
-          </div>
-          <div id="add-deck-button-div">
-            <button type="submit">add-deck</button>
-          </div>
-        </form>
-      );   
+  return (
+    <form id="add-review-form" onSubmit={onSubmit}>
+      {errors && errors.length > 0 ? (
+        <div className='review-errors-div'>
+          <a className='review-error'>Oops!</a>
+          {errors.map((error, ind) => (
+            <a key={ind} className='review-error'>{error}</a>
+          ))}
+        </div>
+      ) : null}
+      <div id="add-review-content-div">
+        <div>
+          <label>Review</label>
+        </div>
+        <input
+          name="content"
+          type="text"
+          placeholder="Content"
+          value={content}
+          onChange={updateContent}
+        />
+        <div>
+          <label>Rating</label>
+        </div>
+        <input
+          name="rating"
+          type="text"
+          placeholder="Score"
+          value={rating}
+          onChange={updateRating}
+        />
+      </div>
+      <div id="post-review-div">
+        <a onClick={(e) => onSubmit(e)}>Post review</a>
+      </div>
+    </form>
+  );
 }
 
 export default AddReviewModal

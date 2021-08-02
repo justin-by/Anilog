@@ -7,11 +7,11 @@ import { Modal } from '../../context/Modal'
 import AddReviewModal from '../AddReviewModal/AddReviewModal';
 
 const ReviewsContent = () => {
-    const stateReviews = useSelector( (state) => state.reviewsReducer["reviews"])
+    const stateReviews = useSelector((state) => state.reviewsReducer["reviews"])
     const sessionUser = useSelector((state) => state.session.user);
 
     const dispatch = useDispatch();
-    const {animeId } = useParams();
+    const { animeId } = useParams();
 
     const [reviews, setReviews] = useState([]);
     const [showModal, setShowModal] = useState(false);
@@ -26,18 +26,21 @@ const ReviewsContent = () => {
 
     const onClose = () => {
         setShowModal(false);
-      };
-    
+    };
+
 
     return (
         <>
+            {showModal &&
+                <Modal onClose={onClose}>
+                    <AddReviewModal animeId={animeId} showModal={showModal} setShowModal={setShowModal} />
+                </Modal>
+            }
             <div className='reviews-content'>
                 <div className='reviews-container'>
                     <div className='anime-review' >
                         <a className='anime-review-content' onClick={(e) => (
-                            <Modal onClose={onClose}>
-                                <AddReviewModal setShowModal={setShowModal}/>
-                            </Modal>
+                            setShowModal(true)
                         )}>Press to create a review!</a>
                     </div>
                     {reviews?.map((review) => (
@@ -47,11 +50,11 @@ const ReviewsContent = () => {
                                 <a className='anime-review-rating'>{review.rating}/10</a>
                                 {sessionUser && review.userId === sessionUser.id && (
                                     <>
-                                        <i className="fas fa-pencil-alt" onClick={(e) => dispatch(reviewActions.deleteAnimeReview(review.id, animeId))}></i>
-                                        <i className="far fa-trash-alt"></i>
+                                        <i className="fas fa-pencil-alt"></i>
+                                        <i className="far fa-trash-alt" onClick={(e) => dispatch(reviewActions.deleteAnimeReview(review.id, animeId))}></i>
                                     </>
-                                )} 
-   
+                                )}
+
                             </div>
                         </div>
                     ))}
