@@ -9,4 +9,9 @@ def anime_by_season(season):
     seasonAnimes = Anime.query.filter_by(season=season.upper()).all()
     return {'anime': [seasonAnime.to_dict() for seasonAnime in seasonAnimes]}
 
+@anime_routes.route('/<int:animeId>')
+def anime_by_id(animeId):
+    anime = Anime.query.filter_by(id=animeId).first();
+    return {'anime': anime.to_dict()}
+
 
