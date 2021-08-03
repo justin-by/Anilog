@@ -1,14 +1,14 @@
-.background {
+.background2 {
     background-color: #0b1622;
     position: absolute;
     min-height: 100vh;
-    width: 100vw;
     top: 75px;
+    width: 100vw;
     padding: 0;
     margin: 0;
 }
 
-.container {
+.container2 {
     background-color: white;
     margin: 0 auto;
     height: 100vh;
@@ -16,6 +16,87 @@
     width: 70%;
 
 }
+
+.list-side-info {
+    position: relative;
+    width: 215px;
+    height: 100vh;
+    background-color: pink;
+}
+
+.lists {
+    position: absolute;
+    top: 0px;
+    margin-left: 0px;
+    width: 59%;
+    height: 100vh;
+    background-color: cadetblue;
+    margin-left: 215px;
+}
+
+.list-header {
+    background-color: burlywood;
+    margin: 0 auto;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 90%;
+    font-size: 1.2rem;
+}
+
+.list-section {
+    background-color: gray;
+    border-radius: 4px;
+    margin: 0 auto;
+    margin-top: 10px;
+    box-shadow: 0 2px 20px rgb(49 54 68 / 9%);
+    font-size: 1.5rem;
+    width: 90%;
+    height: 200px;
+}
+
+.list-head-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.list-title {
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.list-score {
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.list-entry-row {
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 95%;
+}
+
+.list-entry-img {
+    background-image: url("https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx16498-m5ZMNtFioc7j.png");
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 3px;
+    height: 40px;
+    width: 40px;
+}
+
+.list-entry-title {
+    position: absolute;
+}
+
+
 
 @media (min-width: 1040px) and (max-width: 1540px) {
 .container {
