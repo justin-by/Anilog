@@ -1,0 +1,24 @@
+.background {
+    background-color: #0b1622;
+    position: absolute;
+    min-height: 100vh;
+    width: 100vw;
+    top: 75px;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    background-color: white;
+    margin: 0 auto;
+    height: 100vh;
+    min-width: 320px;
+    width: 70%;
+
+}
+
+@media (min-width: 1040px) and (max-width: 1540px) {
+.container {
+    max-width: 1140px;
+    }
+}

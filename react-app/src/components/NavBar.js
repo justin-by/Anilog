@@ -1,9 +1,8 @@
 import { useSelector } from 'react-redux';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import LoginForm from './auth/LoginForm'
 import SignUpForm from './auth/SignUpForm'
-import LogoutButton from './auth/LogoutButton';
 import { Modal } from '../context/Modal'
 import "./NavBar.css";
 
@@ -40,45 +39,53 @@ const NavBar = ({ modalToggle }) => {
           </div>
 
           <div className='navlinks-container'>
-              <NavLink to="/" exact={true} style={{ textDecoration: 'none' }} activeClassName="active">
-                <span id="home-button" className="nav-links">
-                  Home
-                </span>
-              </NavLink>
-              <NavLink to="/search/anime" exact={true} style={{ textDecoration: 'none' }} activeClassName="active">
-                <span id="browse-button" className="nav-links">
-                  Browse
-                </span>
-              </NavLink>
+            <NavLink to="/" exact={true} style={{ textDecoration: 'none' }} activeClassName="active">
+              <span id="home-button" className="nav-links">
+                Home
+              </span>
+            </NavLink>
+            <NavLink to="/search/anime" exact={true} style={{ textDecoration: 'none' }} activeClassName="active">
+              <span id="browse-button" className="nav-links">
+                Browse
+              </span>
+            </NavLink>
+
+            {sessionUser ? 
+            <NavLink to={`/user/${sessionUser.username}/list`} exact={true} style={{ textDecoration: 'none' }} activeClassName="active">
+              <span id="browse-button" className="nav-links">
+                My List
+              </span>
+            </NavLink> : null}
+
           </div>
 
-            {sessionUser ? null : (
-              <div className='login-signup-container'>
-                  <button
-                    id="login-button"
-                    className="nav-button"
-                    onClick={showForm}
-                    value="login"
-                  >
-                    Login
-                  </button>
+          {sessionUser ? null : (
+            <div className='login-signup-container'>
+              <button
+                id="login-button"
+                className="nav-button"
+                onClick={showForm}
+                value="login"
+              >
+                Login
+              </button>
 
-                  <button
-                    id="signup-button"
-                    className="nav-button signup-button"
-                    onClick={showForm}
-                    value="signup"
-                  >
-                    Sign Up
-                  </button>
+              <button
+                id="signup-button"
+                className="nav-button signup-button"
+                onClick={showForm}
+                value="signup"
+              >
+                Sign Up
+              </button>
 
-              </div>
-            )}
-            {sessionUser ? (
-              <>
-                  <img src='https://i.imgur.com/HnMCw1S.png' className='profile-icon'/>
-              </>
-            ) : null}
+            </div>
+          )}
+          {sessionUser ? (
+            <>
+              <img src='https://i.imgur.com/HnMCw1S.png' className='profile-icon' />
+            </>
+          ) : null}
         </div>
       </nav>
       {showModal === true && form === "login" && (

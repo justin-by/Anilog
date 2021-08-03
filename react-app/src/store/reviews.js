@@ -39,13 +39,28 @@ export const addNewReview = (newReview, animeId) => async (dispatch) => {
         },
         body: JSON.stringify(newReview)
     })
-
     if (res.ok) {
         dispatch(getAnimeReviews(animeId))
         return null;
     } else {
         const data = await res.json()
-        console.log('FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF', data.errors)
+        if (data.errors) return data
+    }
+}
+
+export const updateReview = (newReview, reviewId, animeId) => async (dispatch) => {
+    const res = await fetch(`/api/reviews/${reviewId}/anime/${animeId}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newReview)
+    })
+    if (res.ok) {
+        dispatch(getAnimeReviews(animeId))
+        return null;
+    } else {
+        const data = await res.json()
         if (data.errors) return data
     }
 }

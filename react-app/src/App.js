@@ -8,6 +8,7 @@ import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import User from './components/User';
 import Background from './components/Background/Background';
+import ListPage from './components/ListPage/ListPage';
 import BrowsePage from './components/BrowsePage/BrowsePage'
 import AnimePage from './components/AnimePage/AnimePage'
 import { authenticate } from './store/session';
@@ -43,6 +44,9 @@ function App() {
         <Route path='/anime/:animeId' exact={true} >
           <AnimePage />
         </Route>
+        <ProtectedRoute path='/user/:username/list' exact={true} >
+          <ListPage />
+        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );

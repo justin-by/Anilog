@@ -1,24 +1,42 @@
 import ReviewsContent from '../ReviewsContent/ReviewsContent';
 import './AnimePage.css'
 
+import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router';
+import { useEffect } from 'react';
+import * as animeActions from '../../store/anime'
+
+
+
 const AnimePage = () => {
 
-    return (
+    const foundAnime = useSelector((state) => state.animeReducer["anime"])
+    const dispatch = useDispatch();
+
+    const { animeId } = useParams();
+
+    useEffect(() => {
+        dispatch(animeActions.getAnime(animeId))
+    }, [dispatch])
+
+    {return foundAnime ? (
         <>
-            <div className='anime-banner'>
+            <div className='anime-banner' style={{
+              background: `url(${foundAnime.bannerPic})`,
+            }}>
                 <div className='anime-banner-shadow' />
             </div>
             <div className='anime-desc-background'>
                 <div className='anime-desc-container'>
                     <div className='anime-picture'>
-                        <img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx16498-m5ZMNtFioc7j.png" className='cover' />
+                        <img src={foundAnime.extraLargePic} className='cover' />
                     </div>
                     <div className='anime-desc'>
                         <div className='anime-desc-title'>
-                            <a>Placeholder anime title</a>
+                            <a>{foundAnime.title}</a>
                         </div>
                         <div className='anime-desc-content'>
-                            <p>Placeholder anime desc</p>
+                            <p>{foundAnime.desc}</p>
                         </div>
                         <div className='anime-nav-links'>
                             <div className='anime-nav-link'>
@@ -42,7 +60,8 @@ const AnimePage = () => {
                 </div>
             </div>
         </>
-    )
+    ) : null}
+    
 }
 
 export default AnimePage;

@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import * as reviewActions from "../../store/reviews";
 
 
 
-const AddReviewModal = ({ showModal, setShowModal, animeId }) => {
+const UpdateReviewModal = ({ showModal, setShowModal, animeId, reviewId, reviewInfo }) => {
   const [errors, setErrors] = useState([]);
-  const [content, setContent] = useState("");
-  const [rating, setRating] = useState(0);
+  const [content, setContent] = useState(reviewInfo.content);
+  const [rating, setRating] = useState(reviewInfo.rating);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const AddReviewModal = ({ showModal, setShowModal, animeId }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const data = await dispatch(reviewActions.addNewReview({ content, rating }, animeId));
+    const data = await dispatch(reviewActions.updateReview({ content, rating }, reviewId, animeId));
     if (data) {
       setErrors(data.errors);
       console.log(errors)
@@ -73,10 +73,10 @@ const AddReviewModal = ({ showModal, setShowModal, animeId }) => {
         />
       </div>
       <div id="post-review-div">
-        <a onClick={(e) => onSubmit(e)}>Post review</a>
+        <a onClick={(e) => onSubmit(e)}>Update review</a>
       </div>
     </form>
   );
 }
 
-export default AddReviewModal
+export default UpdateReviewModal
