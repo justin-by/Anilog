@@ -61,7 +61,7 @@
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    width: 80%;
+    width: 85%;
 }
 
 .list-title {
@@ -80,9 +80,11 @@
     margin: 0 auto;
     margin-top: 10px;
     width: 95%;
+    height: 40px;
 }
 
 .list-entry-img {
+    position: absolute;
     background-image: url("https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx16498-m5ZMNtFioc7j.png");
     background-position: 50%;
     background-repeat: no-repeat;
@@ -90,11 +92,27 @@
     border-radius: 3px;
     height: 40px;
     width: 40px;
+
 }
 
 .list-entry-title {
     position: absolute;
+    left: 140px;
+    font-size: 1.2rem;
+    height: 40px;
+    display: flex;
+    align-items: center;
 }
+
+.list-entry-score {
+    position: relative;
+    left: 870px;
+    font-size: 1.2rem;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
 
 
 

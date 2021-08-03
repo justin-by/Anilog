@@ -12,14 +12,12 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
 
     review = db.relationship('Review', back_populates='user')
-    table_anime = db.relationship('table_anime', secondary='table_anime', backref=db.backref('anime'))
+    table_anime = db.relationship('AnimeList', back_populates='user')
 
-    table_anime = db.Table('table_anime',
-        db.Column('user_id', db.Integer, db.ForeignKey('users.id'), primary_key=True),
-        db.Column('anime_id', db.Integer, db.ForeignKey('anime.id'), primary_key=True),
-        db.Column('status', db.String(20), nullable=False),
-        db.Column('rating', db.Integer, nullable=False)
-    )
+
+    @property
+    def anime(self):
+        return [animeListObj.anime for animeListObj in table_anime]
 
     @property
     def password(self):

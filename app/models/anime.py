@@ -22,6 +22,7 @@ class Anime(db.Model):
 
     review = db.relationship('Review', back_populates='anime')
     character = db.relationship('Character', back_populates='anime')
+    table_anime = db.relationship('AnimeList', back_populates='anime')
 
     def to_dict(self):
         return {

@@ -1,6 +1,18 @@
 import './ListPage.css'
+import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router';
+import { useEffect } from 'react';
+import * as animeListActions from '../../store/listanime'
 
 const ListPage = () => {
+    const dispatch = useDispatch();
+
+
+    const { status } = useParams();
+    
+    useEffect(() => {
+        dispatch(animeListActions.getAnimesByStatus(status))
+    }, [dispatch])
 
     return (
         <>
@@ -13,12 +25,16 @@ const ListPage = () => {
                             <h3>Completed</h3>
                         </div>
                         <div className='list-section'>
+
+
+
+
                             <div className='list-head-row'>
                                 <div className='list-title'>
-                                Title 
+                                    Title
                                 </div>
                                 <div className='list-score'>
-                                Score
+                                    Score
                                 </div>
                             </div>
                             <div className='list-entry-row'>
@@ -33,9 +49,12 @@ const ListPage = () => {
                                     </a>
                                 </div>
                                 <div className='list-entry-score'>
-
+                                    10/10
                                 </div>
                             </div>
+
+
+
                         </div>
                     </div>
                 </div>
