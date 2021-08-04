@@ -18,7 +18,7 @@
 }
 
 .list-side-info {
-    position: relative;
+    position: absolute;
     width: 215px;
     height: 100vh;
     background-color: pink;
@@ -53,7 +53,7 @@
     box-shadow: 0 2px 20px rgb(49 54 68 / 9%);
     font-size: 1.5rem;
     width: 90%;
-    height: 200px;
+    padding-bottom: 10px;
 }
 
 .list-head-row {
@@ -66,6 +66,7 @@
 
 .list-title {
     text-align: left;
+    margin-left: 7px;
     font-size: 1.2rem;
     font-weight: 500;
 }
@@ -85,13 +86,13 @@
 
 .list-entry-img {
     position: absolute;
-    background-image: url("https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx16498-m5ZMNtFioc7j.png");
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 3px;
     height: 40px;
     width: 40px;
+    text-align: center;
 
 }
 
@@ -113,11 +114,32 @@
     align-items: center;
 }
 
+.filter-list-box {
+    background-color: burlywood;
+    margin-top: 50px;
+}
+
+.filter-list-title {
+    font-size: 1.0rem;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.filter-list {
+    cursor: pointer;
+    font-size: 1.0rem;
+    margin-bottom: 8px;
+    padding: 5px 10px;
+    text-transform: capitalize;
+    border-radius: 3px;
+    font-weight: 500;
+}
+
 
 
 
 @media (min-width: 1040px) and (max-width: 1540px) {
-.container {
+.container2 {
     max-width: 1140px;
     }
 }

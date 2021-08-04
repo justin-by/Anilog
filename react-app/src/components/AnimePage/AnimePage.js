@@ -49,8 +49,8 @@ const AnimePage = () => {
                     </div>
                 </div>
             </div>
-            <div className='background1'>
-                <div className='container1'>
+            <div className='background3'>
+                <div className='container3'>
                     <div className='anime-side-info'>
                     </div>
                     <div className='main-content-background'>

@@ -1,14 +1,14 @@
-.background1 {
+.background3 {
     background-color: #0b1622;
     position: relative;
     min-height: 100vh;
     width: 100vw;
-    top: 75px;
+    top: 775px;
     padding: 0;
     margin: 0;
 }
 
-.container1 {
+.container3 {
     position: relative;
     background-color: white;
     padding: 0;
@@ -19,7 +19,7 @@
 }
 
 @media (min-width: 1040px) and (max-width: 1540px) {
-.container {
+.container3 {
     max-width: 1140px;
     }
 }
@@ -133,7 +133,7 @@
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 85%;
+    width: 84%;
     height: 100vh;
     background-color: cadetblue;
     margin-left: 215px;

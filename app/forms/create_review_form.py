@@ -15,5 +15,5 @@ def rating_limit(form, field):
         raise ValidationError('Rating must be between 0 and 10')
 
 class ReviewForm(FlaskForm):
-    content = StringField("Content", validators=[DataRequired(), content_limit])
-    rating = IntegerField("Rating", validators=[DataRequired(), rating_limit])
+    content = StringField("Content", validators=[DataRequired(message='Review is required'), content_limit])
+    rating = IntegerField("Rating", validators=[DataRequired(message='Rating is required'), rating_limit])

@@ -16,8 +16,12 @@ class User(db.Model, UserMixin):
 
 
     @property
-    def anime(self):
-        return [animeListObj.anime for animeListObj in table_anime]
+    def animeList(self):
+        return [animeListObj for animeListObj in self.table_anime]
+
+    @animeList.setter
+    def animeList(self, animeObjList):
+        self.table_anime = animeObjList
 
     @property
     def password(self):
