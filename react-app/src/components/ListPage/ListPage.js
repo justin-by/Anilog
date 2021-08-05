@@ -5,8 +5,9 @@ import * as animeListActions from '../../store/listanime'
 
 const ListPage = () => {
     const dispatch = useDispatch();
-    const foundAnime = useSelector((state) => state.animeReducer["anime"])
+    const foundAnime5 = useSelector((state) => state.animeListReducer["anime"])
     const [status, setStatus] = useState("WATCHED")
+    console.log('FFFFFFFFFFFFFFFFFFFFFFFF', foundAnime5)
 
     useEffect(() => {
         dispatch(animeListActions.getAnimesByStatus(status))
@@ -46,7 +47,7 @@ const ListPage = () => {
                                 </div>
                             </div>
 
-                            {foundAnime && foundAnime.map(anime => (
+                            {foundAnime5 && foundAnime5.map(anime => (
                                 <>
                                     <div className='list-entry-row'>
                                         <div className='list-entry-cover'>

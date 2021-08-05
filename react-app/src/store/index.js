@@ -3,13 +3,16 @@ import thunk from 'redux-thunk';
 import session from './session'
 import reviewsReducer from './reviews';
 import animeListReducer from './listanime';
+import animeStatusReducer from './animestatus';
 import animeReducer from './anime';
+
 
 const rootReducer = combineReducers({
   session,
   reviewsReducer,
   animeReducer,
-  animeListReducer
+  animeListReducer,
+  animeStatusReducer
 });
 
 

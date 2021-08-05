@@ -74,7 +74,7 @@ nav {
 .signup-button {
     color: white;
     font-weight: 700;
-    background: #3577ff;
+    background-color: #3577ff;
     border-radius: 6px;
     box-shadow: 0 0 0 rgb(8 150 230 / 60%);
     transition: box-shadow .6s ease,transform .2s ease-in-out;

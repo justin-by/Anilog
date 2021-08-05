@@ -138,3 +138,50 @@
     background-color: cadetblue;
     margin-left: 215px;
 }
+
+.anime-page-status {
+    color: white;
+    background-color: #40b4f4;
+    display: flex;
+    font-size: 1.2rem;
+    height: 35px;
+    justify-content: center;
+    line-height: 1.3rem;
+    border-radius: 3px;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.anime-status-button {
+    background-color: #40b4f4;
+}
+
+.fa-chevron-down {
+    margin-top: 4px;
+    margin-left: 20px;
+}
+
+.status-dropdown-container {
+    background-color: white;
+    width: 140px;
+    height: 130px;
+    transform-origin: center top;
+    z-index: 1;
+    position: absolute;
+    top: 730px;
+    left: 230px;
+    border: 0;
+    box-shadow: 0 1px 10px 0 rgb(49 54 68 / 15%);
+    overflow: initial;
+    border-radius: 5px;
+}
+
+.status-dropdown-select {
+    list-style-type: none;
+    line-height: 30px;
+    padding: 0 17px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 8px;
+    outline: none;
+}
