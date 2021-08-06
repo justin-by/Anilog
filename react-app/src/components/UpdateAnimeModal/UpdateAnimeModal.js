@@ -3,7 +3,7 @@ import { useDispatch} from "react-redux";
 import { useEffect } from "react";
 import * as animeListActions from "../../store/listanime";
 
-const UpdateAnimeModal = ({ showModal, setShowModal, animeId, animeListId, originalStatus }) => {
+const UpdateAnimeModal = ({ showModal, setShowModal,animeListId, originalStatus }) => {
   const [errors, setErrors] = useState([]);
   const [status, setStatus] = useState("WATCHING");
   const [rating, setRating] = useState('');
@@ -24,7 +24,7 @@ const UpdateAnimeModal = ({ showModal, setShowModal, animeId, animeListId, origi
         'status': status,
         'rating': (rating === '' ? 0 : rating)
     }, animeListId, originalStatus));
-    if (data) {
+    if (data.errors) {
       setErrors(data.errors);
       console.log(errors)
     } else {
@@ -32,9 +32,10 @@ const UpdateAnimeModal = ({ showModal, setShowModal, animeId, animeListId, origi
     }
   };
 
-  const onDelete = async (e) => {
+  const onDelete = (e) => {
     e.preventDefault();
     dispatch(animeListActions.deleteAnime(animeListId, originalStatus))
+    setShowModal(false)
   }
 
   const updateStatus = (e) => {

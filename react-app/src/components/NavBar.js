@@ -1,15 +1,18 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import React, { useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import LoginForm from './auth/LoginForm'
 import SignUpForm from './auth/SignUpForm'
 import { Modal } from '../context/Modal'
+import * as sessionActions from "../store/session";
 import "./NavBar.css";
 
 const NavBar = ({ modalToggle }) => {
   const sessionUser = useSelector((state) => state.session.user);
   const [showModal, setShowModal] = useState(false);
   const [form, setForm] = useState("login")
+
+  const dispatch = useDispatch();
   const history = useHistory();
 
   const showForm = (e) => {
@@ -50,12 +53,12 @@ const NavBar = ({ modalToggle }) => {
               </span>
             </NavLink>
 
-            {sessionUser ? 
-            <NavLink to={`/user/${sessionUser.username}/list`} exact={true} style={{ textDecoration: 'none' }} activeClassName="active">
-              <span id="browse-button" className="nav-links">
-                My List
-              </span>
-            </NavLink> : null}
+            {sessionUser ?
+              <NavLink to={`/user/${sessionUser.username}/list`} exact={true} style={{ textDecoration: 'none' }} activeClassName="active">
+                <span id="browse-button" className="nav-links">
+                  My List
+                </span>
+              </NavLink> : null}
 
           </div>
 
@@ -82,9 +85,16 @@ const NavBar = ({ modalToggle }) => {
             </div>
           )}
           {sessionUser ? (
-            <>
+            <div className='icon-logout-holder'>
               <img src='https://i.imgur.com/HnMCw1S.png' className='profile-icon' />
-            </>
+              <button
+                id="login-button"
+                className="nav-button logout-button"
+                onClick={(e) => dispatch(sessionActions.logout())}
+              >
+                Log out
+              </button>
+            </div>
           ) : null}
         </div>
       </nav>

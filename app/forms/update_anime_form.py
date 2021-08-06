@@ -10,4 +10,4 @@ def rating_limit(form, field):
 
 class UpdateAnimeForm(FlaskForm):
     status = StringField("Status", validators=[DataRequired()])
-    rating = IntegerField("Rating", validators=[DataRequired(), rating_limit])
+    rating = IntegerField("Rating", validators=[rating_limit])

@@ -26,7 +26,7 @@ const AddAnimeModal = ({ showModal, setShowModal, animeId }) => {
         'status': status,
         'rating': (rating === '' ? 0 : rating)
     }, animeId, status));
-    if (data) {
+    if (data.errors) {
       setErrors(data.errors);
       console.log(errors)
     } else {

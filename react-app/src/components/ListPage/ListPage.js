@@ -72,13 +72,12 @@ const ListPage = () => {
                                         <div className='list-entry-cover'>
                                             <div className='list-entry-img' onClick={() => {
                                                 setAnimeId(anime.anime.id)
-                                                console.log('FFFFFFFFFFF', anime)
                                                 setAnimeListId(anime.id)
                                                 setOriginalStatus(anime.status)
                                                 setShowModal(true)
                                             }}
                                                 style={{
-                                                    background: `url(${anime.anime.mediumPic})`
+                                                    'background-image': `url(${anime.anime.mediumPic})`
                                                 }}>
 
                                             </div>

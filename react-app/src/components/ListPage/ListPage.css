@@ -82,13 +82,13 @@
     margin-top: 10px;
     width: 95%;
     height: 40px;
+    display: flex;
 }
 
 .list-entry-img {
-    position: absolute;
-    background-position: center;
+    background-position: 50%;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     border-radius: 3px;
     height: 40px;
     width: 40px;
