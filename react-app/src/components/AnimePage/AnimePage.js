@@ -72,7 +72,7 @@ const AnimePage = () => {
                                 <a>{foundAnime.title}</a>
                             </div>
                             <div className='anime-desc-content'>
-                                <p>{foundAnime.desc}</p>
+                                <p dangerouslySetInnerHTML={{__html: `${foundAnime.desc}`}}></p>
                             </div>
                             <div className='anime-nav-links'>
                                 <div className='anime-nav-link'>
