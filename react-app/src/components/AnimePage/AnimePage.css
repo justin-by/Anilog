@@ -166,10 +166,10 @@ html, body {
 }
 
 .anime-side-info {
-    position: relative;
+    position: absolute;
     width: 215px;
     height: 100vh;
-    background-color: pink;
+    background-color: #0b1622;
 }
 
 .main-content-background {
@@ -178,7 +178,7 @@ html, body {
     left: 0px;
     width: 84%;
     height: 100vh;
-    background-color: cadetblue;
+    background-color: #0b1622;
     margin-left: 215px;
 }
 
@@ -228,4 +228,44 @@ html, body {
     cursor: pointer;
     margin-top: 8px;
     outline: none;
+}
+
+.anime-rating-holder {
+    background-color: rgb(21,31,46);
+    border-radius: 3px;
+    display: block;
+    margin-top: 50px;
+    width: 100%;
+    padding: 8px 12px;
+}
+
+.fa-star {
+    color: yellow;
+}
+
+.anime-info-text-rating {
+    color: white;
+    font-size: .8rem;
+    width: 100%;
+}
+
+.anime-info-text {
+    color: white;
+    font-size: .9rem;
+    width: 100%;
+}
+
+.anime-info-box {
+    margin-top: 10px;
+    background-color: rgb(21,31,46);
+    border-radius: 3px;
+    padding: 8px 12px;
+    height: 100%;
+}
+
+.anime-info-section {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 10px;
 }

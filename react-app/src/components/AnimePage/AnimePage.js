@@ -23,6 +23,7 @@ const AnimePage = () => {
     const [showDropdown, setShowDropdown] = useState('none')
     const [showModal, setShowModal] = useState(false);
     const [showTab, setShowTab] = useState('overview')
+    const [status, setStatus] = useState(foundStatus)
 
     const capitalize = (string) => {
         const lower = string.toLowerCase();
@@ -39,8 +40,13 @@ const AnimePage = () => {
 
     useEffect(() => {
         dispatch(animeActions.getAnime(animeId))
-        dispatch(animeStatusActions.getAnimeStatus(animeId))
     }, [dispatch, animeId])
+
+    useEffect(() => {
+        dispatch(animeStatusActions.getAnimeStatus(animeId))
+        setStatus(foundStatus)
+    }, [dispatch, foundStatus])
+
 
 
     {
@@ -56,12 +62,12 @@ const AnimePage = () => {
                         <div className='anime-picture'>
                             <img src={foundAnime.extraLargePic} className='cover' />
                             <div className='anime-page-status'>
-                                <a className='anime-status-button'>{foundStatus ? capitalize(foundStatus) : (
+                                <a className='anime-status-button'>{status ? capitalize(status) : (
                                     <a onClick={() =>
                                         setShowModal(true)
                                     }>Add to List</a>
                                 )}</a>
-                                {sessionUser && foundStatus && (
+                                {sessionUser && status && (
                                     <i className="fas fa-chevron-down" onClick={(e) => setShowDropdown(showDropdown === 'block' ? 'none' : 'block')}></i>
                                 )}
 
@@ -88,6 +94,28 @@ const AnimePage = () => {
                 <div className='background3'>
                     <div className='container3'>
                         <div className='anime-side-info'>
+                            <div className='anime-rating-holder'>
+                                <a className='anime-info-text-rating'><i class="fas fa-star"></i> #{foundAnime.ranking} Highest Rated All Time</a>
+                            </div>
+                            <div className='anime-info-box'>
+                                <div className='anime-info-section'>
+                                    <a className='anime-info-text'>Episodes</a>
+                                    <a className='anime-info-text'>{foundAnime.episodes}</a>
+                                </div>
+                                <div className='anime-info-section'>
+                                    <a className='anime-info-text'>Season</a>
+                                    <a className='anime-info-text'>{foundAnime.season}</a>
+                                </div>
+                                <div className='anime-info-section'>
+                                    <a className='anime-info-text'>Year</a>
+                                    <a className='anime-info-text'>{foundAnime.year}</a>
+                                </div>
+                                <div className='anime-info-section'>
+                                    <a className='anime-info-text'>Synonyms</a>
+                                    <a className='anime-info-text'>{foundAnime.title}</a>
+                                    <a className='anime-info-text'>{foundAnime.japTitle}</a>
+                                </div>
+                            </div>
                         </div>
                         <div className='main-content-background'>
                             {showTab && showTab === 'reviews' ? (
