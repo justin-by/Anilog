@@ -23,7 +23,7 @@ def anime_by_status(status):
 # Find status of an anime 
 @anime_list_routes.route('/<int:animeId>/status')
 def anime_status(animeId):
-    anime = AnimeList.query.filter_by(animeId=animeId).first();
+    anime = AnimeList.query.filter_by(animeId=animeId, userId=current_user.id).first();
     return {'status': anime.to_dict()["status"]}
 
 # Update list status of an anime
@@ -33,7 +33,7 @@ def update_anime_status(animeId, status):
     form = UpdateStatusForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
     if form.validate_on_submit():
-        anime = AnimeList.query.filter_by(animeId=animeId).first();
+        anime = AnimeList.query.filter_by(animeId=animeId, userId=current_user.id).first();
 
         anime.status = form.data["status"]
 

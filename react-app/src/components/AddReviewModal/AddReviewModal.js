@@ -6,6 +6,7 @@ import * as reviewActions from "../../store/reviews";
 
 
 const AddReviewModal = ({ showModal, setShowModal, animeId }) => {
+  const sessionUser = useSelector((state) => state.session.user);
   const [errors, setErrors] = useState([]);
   const [content, setContent] = useState("");
   const [rating, setRating] = useState(0);

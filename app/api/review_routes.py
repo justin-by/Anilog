@@ -29,7 +29,7 @@ def anime_review(reviewId, animeId):
     review = Review.query.filter_by(id=reviewId).first();
     db.session.delete(review);
     db.session.commit();
-    return {'reviews': review.to_dict()}
+    return {}
 
 
 # Create a review    

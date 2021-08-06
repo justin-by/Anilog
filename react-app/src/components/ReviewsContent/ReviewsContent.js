@@ -50,6 +50,7 @@ const ReviewsContent = () => {
 
                     {reviews?.map((review) => (
                         <div className='anime-review' >
+                            <a className='anime-review-username'>{review.username}:</a>
                             <a className='anime-review-content'>{review.content}</a>
                             <div className='review-extra'>
                                 <a className='anime-review-rating'>{review.rating}/10</a>

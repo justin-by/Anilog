@@ -18,5 +18,6 @@ class Review(db.Model):
             'content': self.content,
             'rating': self.rating,
             'userId': self.userId,
+            'username': self.user.username,
             'animeId': self.animeId
         }

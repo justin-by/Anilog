@@ -35,13 +35,18 @@
 .anime-review-content {
     font-style: italic;
     color: rgba(114,138,161, 1);
+    padding-left: 0px;
+    padding-right: 10px;
+}
+
+.anime-review-username {
+    color: rgba(114,138,161, 1);
     padding-left: 10px;
     padding-right: 10px;
 }
 
 
 .anime-review-content:hover {
-    cursor: pointer;
     color: rgb(184, 184, 184);
 }
 .anime-review-rating {
