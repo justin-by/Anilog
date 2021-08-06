@@ -1,4 +1,5 @@
 import ReviewsContent from '../ReviewsContent/ReviewsContent';
+import AnimeOverview from '../AddAnimeModal/AnimeOverview/AnimeOverview';
 import './AnimePage.css'
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -21,6 +22,7 @@ const AnimePage = () => {
 
     const [showDropdown, setShowDropdown] = useState('none')
     const [showModal, setShowModal] = useState(false);
+    const [showTab, setShowTab] = useState('overview')
 
     const capitalize = (string) => {
         const lower = string.toLowerCase();
@@ -37,11 +39,9 @@ const AnimePage = () => {
 
     useEffect(() => {
         dispatch(animeActions.getAnime(animeId))
-    }, [dispatch])
-
-    useEffect(() => {
         dispatch(animeStatusActions.getAnimeStatus(animeId))
-    }, [dispatch])
+    }, [dispatch, animeId])
+
 
     {
         return foundAnime ? (
@@ -58,8 +58,8 @@ const AnimePage = () => {
                             <div className='anime-page-status'>
                                 <a className='anime-status-button'>{foundStatus ? capitalize(foundStatus) : (
                                     <a onClick={() =>
-                                    setShowModal(true)
-                                }>Add to List</a>
+                                        setShowModal(true)
+                                    }>Add to List</a>
                                 )}</a>
                                 {sessionUser && foundStatus && (
                                     <i className="fas fa-chevron-down" onClick={(e) => setShowDropdown(showDropdown === 'block' ? 'none' : 'block')}></i>
@@ -72,13 +72,13 @@ const AnimePage = () => {
                                 <a>{foundAnime.title}</a>
                             </div>
                             <div className='anime-desc-content'>
-                                <p dangerouslySetInnerHTML={{__html: `${foundAnime.desc}`}}></p>
+                                <p dangerouslySetInnerHTML={{ __html: `${foundAnime.desc}` }}></p>
                             </div>
                             <div className='anime-nav-links'>
-                                <div className='anime-nav-link'>
+                                <div className='anime-nav-link' onClick={() => setShowTab('overview')}>
                                     Overview
                                 </div>
-                                <div className='anime-nav-link'>
+                                <div className='anime-nav-link' onClick={() => setShowTab('reviews')}>
                                     Reviews
                                 </div>
                             </div>
@@ -90,7 +90,11 @@ const AnimePage = () => {
                         <div className='anime-side-info'>
                         </div>
                         <div className='main-content-background'>
-                            <ReviewsContent />
+                            {showTab && showTab === 'reviews' ? (
+                                <ReviewsContent />
+
+                            ) : <AnimeOverview />}
+
                         </div>
 
                     </div>
@@ -107,10 +111,10 @@ const AnimePage = () => {
                     </li>
                 </ul>
                 {showModal &&
-                <Modal onClose={onClose}>
-                    <AddAnimeModal animeId={animeId} showModal={showModal} setShowModal={setShowModal} />
-                </Modal>
-            }
+                    <Modal onClose={onClose}>
+                        <AddAnimeModal animeId={animeId} showModal={showModal} setShowModal={setShowModal} />
+                    </Modal>
+                }
             </>
         ) : null
     }

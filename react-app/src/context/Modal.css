@@ -120,7 +120,7 @@
     font-size: 35px;
     font-weight: bold;
     width:100%;
-    margin: 50px 0 0 0 ;
+    margin: 0 0 0 0 ;
     color: #a0b1c5;
   }
   div#add-deck-form-title {
@@ -271,12 +271,16 @@
     cursor: pointer;
   }
 
+  .review-errors-div {
+    margin-top: 20px;
+  }
+
   .review-error {
     text-align:center;
     font-size: 15px;
     font-weight: bold;
     width:100%;
-    margin: 20px 0 0 0 ;
+    margin: 3px 0 0 0 ;
     color: #e48282;
   }
 

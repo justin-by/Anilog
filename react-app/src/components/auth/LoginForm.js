@@ -8,19 +8,19 @@ const LoginForm = ({ setForm, setShowModal }) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
 
 
-  const onLogin = (e) => {
+  const onLogin = async (e) => {
     e.preventDefault();
 
-    const data = dispatch(login(email, password));
+    const data = await dispatch(login(email, password));
 
     if (data) {
       setErrors(data);
+    } else {
+      setShowModal(false);
     }
-    if(errors.length === 0)setShowModal(false);
   };
 
   const demoLogin = (e) => {
@@ -43,10 +43,11 @@ const LoginForm = ({ setForm, setShowModal }) => {
       <div id="login-form-title">
         Welcome Back!
       </div>
-      {errors.length > 0 ? (
-        <div>
+      {errors && errors.length > 0 ? (
+        <div className='review-errors-div'>
+          <a className='review-error'>Oops!</a>
           {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
+            <a key={ind} className='review-error'>{error}</a>
           ))}
         </div>
       ) : null}
@@ -74,9 +75,9 @@ const LoginForm = ({ setForm, setShowModal }) => {
           onChange={updatePassword}
         />
       </div>
-        <p onClick={() => {setForm("signup")}} className='redirect-signup'>
-          Don't have an account? Click here to sign up!
-        </p>
+      <p onClick={() => { setForm("signup") }} className='redirect-signup'>
+        Don't have an account? Click here to sign up!
+      </p>
       <div id="login-button-div" onClick={(e) => onLogin(e)}>
         Login
       </div>

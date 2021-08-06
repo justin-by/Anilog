@@ -8,7 +8,9 @@ import * as sessionActions from "../store/session";
 import "./NavBar.css";
 
 const NavBar = ({ modalToggle }) => {
+
   const sessionUser = useSelector((state) => state.session.user);
+
   const [showModal, setShowModal] = useState(false);
   const [form, setForm] = useState("login")
 

@@ -10,3 +10,12 @@ class Character(db.Model):
     animeId = db.Column(db.Integer, db.ForeignKey('anime.id'), nullable=False)
 
     anime = db.relationship('Anime', back_populates='character')
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'fullName': self.fullName,
+            'mediumPic': self.mediumPic,
+            'largePic': self.largePic,
+            'animeId': self.animeId
+        }

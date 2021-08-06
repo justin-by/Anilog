@@ -1,19 +1,47 @@
+
+
 .background3 {
     background-color: #0b1622;
     position: relative;
     min-height: 100vh;
-    width: 100vw;
+    width: 100%;
     top: 775px;
     padding: 0;
     margin: 0;
+    overflow-y: scroll;
 }
+
+/* .container3 {
+    position: fixed;
+} */
+
+.background3::-webkit-scrollbar {
+  display: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+  }
+  
+
+/* 
+html, body, .background3 {
+    min-height: 100vh;
+}
+
+html, body {
+    min-height: 100vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+} */
 
 .container3 {
     position: relative;
     background-color: white;
     padding: 0;
     margin: 0 auto;
-    height: 100vh;
+    min-height: 100vh;
     min-width: 320px;
     width: 70%;
 }
@@ -93,7 +121,9 @@
 
 .anime-desc-title a {
     padding-left: 16px;
-    color: rgba(114,138,161, 1);
+    color: rgba(159,173,189, 1);
+    font-size: 1.2rem;
+    font-weight: 400;
 }
 
 .anime-desc-content {
@@ -107,6 +137,13 @@
     height: 165px;
 }
 
+.anime-desc-content p:hover {
+    color: rgba(159,173,189, 1);
+    padding-left: 16px;
+    height: 165px;
+    transition: .2s;
+}
+
 .anime-nav-links {
     height: 53px;
     width: 100%;
@@ -118,8 +155,14 @@
 }
 
 .anime-nav-link {
+    cursor: pointer;
     color: rgba(114,138,161, 1);
     display: flex;
+}
+
+.anime-nav-link:hover {
+    cursor: pointer;
+    color: rgba(61,180,242, 1);
 }
 
 .anime-side-info {
@@ -154,6 +197,7 @@
 
 .anime-status-button {
     background-color: #40b4f4;
+    cursor: pointer;
 }
 
 .fa-chevron-down {

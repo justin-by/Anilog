@@ -5,6 +5,7 @@ import reviewsReducer from './reviews';
 import animeListReducer from './listanime';
 import animeStatusReducer from './animestatus';
 import animeReducer from './anime';
+import charactersReducer from './characters';
 
 
 const rootReducer = combineReducers({
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   reviewsReducer,
   animeReducer,
   animeListReducer,
-  animeStatusReducer
+  animeStatusReducer,
+  charactersReducer
 });
 
 

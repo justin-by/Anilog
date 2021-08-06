@@ -22,14 +22,13 @@ const SignUpForm = ({ showModal, setShowModal }) => {
     };
   }, [showModal, setShowModal]);
 
-  const onSignUp = (e) => {
+  const onSignUp = async(e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
-      const data = dispatch(signUp(username, email, password));
-      if (data) {
-        setErrors(data);
-      }
-      if (errors.length === 0) setShowModal(false);
+    const data = await dispatch(signUp(username, email, password, repeatPassword))
+    if (data) {
+      setErrors(data);
+    } else {
+      setShowModal(false);
     }
   };
 
@@ -56,11 +55,16 @@ const SignUpForm = ({ showModal, setShowModal }) => {
   return (
     <form id="signup-form" onSubmit={onSignUp}>
       <div id="signup-form-title">Sign up to access features!</div>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
+
+      {errors && errors.length > 0 ? (
+        <div className='review-errors-div'>
+          <a className='review-error'>Oops!</a>
+          {errors.map((error, ind) => (
+            <a key={ind} className='review-error'>{error}</a>
+          ))}
+        </div>
+      ) : null}
+
       <div>
         <label>User Name</label>
         <input

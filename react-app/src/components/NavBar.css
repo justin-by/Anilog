@@ -53,6 +53,7 @@ nav {
 
 .icon-logout-holder {
     display: flex;
+    align-items: center;
 }
 
 .nav-button {

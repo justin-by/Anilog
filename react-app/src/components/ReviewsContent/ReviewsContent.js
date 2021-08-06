@@ -41,7 +41,7 @@ const ReviewsContent = () => {
 
                     {sessionUser && (
                         <div className='anime-review' >
-                            <a className='anime-review-content' onClick={(e) => {
+                            <a className='anime-review-content-click' onClick={(e) => {
                                 setShowModal(true)
                                 setTypeForm('create')
                             }}>Press to create a review!</a>

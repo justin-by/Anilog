@@ -11,6 +11,7 @@ from .api.auth_routes import auth_routes
 from .api.anime_routes import anime_routes
 from .api.review_routes import review_routes
 from .api.anime_list_routes import anime_list_routes
+from .api.character_routes import character_routes
 
 from .seeds import seed_commands
 
@@ -37,6 +38,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(anime_routes, url_prefix='/api/anime')
 app.register_blueprint(review_routes, url_prefix='/api/reviews')
 app.register_blueprint(anime_list_routes, url_prefix='/api/animelist')
+app.register_blueprint(character_routes, url_prefix='/api/characters')
 db.init_app(app)
 Migrate(app, db)
 

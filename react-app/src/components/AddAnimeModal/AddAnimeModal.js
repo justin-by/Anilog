@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch} from "react-redux";
 import { useEffect } from "react";
 import * as animeListActions from "../../store/listanime";
+import * as animeStatusActions from "../../store/animestatus";
 
 import './AddAnimeModal.css'
 
@@ -26,9 +27,9 @@ const AddAnimeModal = ({ showModal, setShowModal, animeId }) => {
         'status': status,
         'rating': (rating === '' ? 0 : rating)
     }, animeId, status));
+    dispatch(animeStatusActions.updateAnimeStatus(animeId, status, {status}))
     if (data) {
       setErrors(data.errors);
-      console.log(errors)
     } else {
       setShowModal(false);
     }

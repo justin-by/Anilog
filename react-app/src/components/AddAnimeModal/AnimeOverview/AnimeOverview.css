@@ -1,0 +1,78 @@
+.anime-trailer-div {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.overview-content {
+    background-color: #0b1622;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.characters-container {
+    margin-top: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+    background-color: #0b1622;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.character-header-holder {
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: left;
+}
+
+.character-header {
+    width: 100%;
+    font-size: 1.2rem;
+    color: rgb(159,173,189);
+}
+
+
+.character-card {
+    display: flex;
+    border-radius: 3px;
+    height: 80px;
+    width: 300px;
+    background-color: #151f2e;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+.character-card-img {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 3px;
+    text-align: center;
+    height: 80px;
+    width: 60px;
+    background-color: orange;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    
+}
+
+.character-card-body {
+    width: 100%;
+    color: rgb(159,173,189);
+    display: flex;
+    align-items: center;
+}
+
+.character-name {
+    margin-left: 15px;
+}
