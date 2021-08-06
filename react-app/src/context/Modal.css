@@ -43,6 +43,7 @@
     border-radius: .5rem;
     box-shadow: 5px 5px #1b8bbf93, -5px 5px #1b8bbf93, 5px -5px #1b8bbf93, -5px -5px #1b8bbf93;
   }
+
   /* Form Logo styling */
   form#login-form > div#login-header > #logo-div > img{
     margin: 100px 20px 0 0;
@@ -159,7 +160,7 @@
     padding: 25px 25px;
     display: flex;
     justify-content: center;
-    width: 25%;
+    width: 30%;
     margin-bottom: 0px;
     height: 4vh;
   }
@@ -212,6 +213,40 @@
     margin-bottom: 0px;
     height: 4vh;
   }
+
+  div#post-anime-div {
+    background-color: #3577ff;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 0px;
+    padding: 25px 25px;
+    display: flex;
+    justify-content: center;
+    width: 45%;
+    margin-bottom: 0px;
+    height: 4vh;
+  }
+
+  div#delete-anime-div {
+    background-color: #b9106d;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 30px;
+    padding: 25px 25px;
+    display: flex;
+    justify-content: center;
+    width: 45%;
+    margin-bottom: 0px;
+    height: 4vh;
+  }
   
   
   #add-deck-title-div, #add-deck-category-div {
@@ -237,6 +272,15 @@
   }
 
   .review-error {
+    text-align:center;
+    font-size: 15px;
+    font-weight: bold;
+    width:100%;
+    margin: 20px 0 0 0 ;
+    color: #e48282;
+  }
+
+  .anime-error {
     text-align:center;
     font-size: 15px;
     font-weight: bold;

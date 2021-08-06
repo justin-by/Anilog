@@ -86,14 +86,13 @@
 
 .list-entry-img {
     position: absolute;
-    background-position: 50%;
+    background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     border-radius: 3px;
     height: 40px;
     width: 40px;
     text-align: center;
-
 }
 
 .list-entry-title {

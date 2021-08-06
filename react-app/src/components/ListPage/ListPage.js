@@ -2,12 +2,31 @@ import './ListPage.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import * as animeListActions from '../../store/listanime'
+import { Modal } from '../../context/Modal';
+import UpdateAnimeModal from '../UpdateAnimeModal/UpdateAnimeModal';
 
 const ListPage = () => {
     const dispatch = useDispatch();
-    const foundAnime5 = useSelector((state) => state.animeListReducer["anime"])
+    const foundAnime = useSelector((state) => state.animeListReducer["anime"])
+
     const [status, setStatus] = useState("WATCHED")
-    console.log('FFFFFFFFFFFFFFFFFFFFFFFF', foundAnime5)
+    const [showModal, setShowModal] = useState(false);
+    const [animeId, setAnimeId] = useState('')
+    const [animeListId, setAnimeListId] = useState('')
+    const [originalStatus, setOriginalStatus] = useState('')
+
+    const capitalize = (string) => {
+        const lower = string.toLowerCase();
+        const first = lower.charAt(0)
+        const upper = first.toUpperCase();
+        const remain = lower.slice(1)
+        const final = upper + remain
+        return final
+    }
+
+    const onClose = () => {
+        setShowModal(false);
+    };
 
     useEffect(() => {
         dispatch(animeListActions.getAnimesByStatus(status))
@@ -35,7 +54,7 @@ const ListPage = () => {
                     </div>
                     <div className='lists'>
                         <div className='list-header'>
-                            <h3>Completed</h3>
+                            <h3>{status !== 'PLANNING' ? capitalize(status) : 'Planing to Watch'}</h3>
                         </div>
                         <div className='list-section'>
                             <div className='list-head-row'>
@@ -47,13 +66,20 @@ const ListPage = () => {
                                 </div>
                             </div>
 
-                            {foundAnime5 && foundAnime5.map(anime => (
+                            {foundAnime && foundAnime.map(anime => (
                                 <>
                                     <div className='list-entry-row'>
                                         <div className='list-entry-cover'>
-                                            <div className='list-entry-img' style={{
-                                                background: `url(${anime.anime.mediumPic})`
-                                            }}>
+                                            <div className='list-entry-img' onClick={() => {
+                                                setAnimeId(anime.anime.id)
+                                                console.log('FFFFFFFFFFF', anime)
+                                                setAnimeListId(anime.id)
+                                                setOriginalStatus(anime.status)
+                                                setShowModal(true)
+                                            }}
+                                                style={{
+                                                    background: `url(${anime.anime.mediumPic})`
+                                                }}>
 
                                             </div>
                                         </div>
@@ -62,9 +88,11 @@ const ListPage = () => {
                                                 {anime.anime.title}
                                             </a>
                                         </div>
-                                        <div className='list-entry-score'>
-                                            {anime.rating}/10
-                                        </div>
+                                        {anime.rating > 1 ?
+                                            <div className='list-entry-score'>
+                                                {anime.rating}/10
+                                            </div> : null}
+
                                     </div>
                                 </>
                             ))}
@@ -73,6 +101,11 @@ const ListPage = () => {
                     </div>
                 </div>
             </div>
+            {showModal &&
+                <Modal onClose={onClose}>
+                    <UpdateAnimeModal animeId={animeId} animeListId={animeListId} originalStatus={originalStatus} showModal={showModal} setShowModal={setShowModal} />
+                </Modal>
+            }
         </>
     )
 }

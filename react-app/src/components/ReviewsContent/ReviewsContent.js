@@ -38,12 +38,16 @@ const ReviewsContent = () => {
         <>
             <div className='reviews-content'>
                 <div className='reviews-container'>
-                    <div className='anime-review' >
-                        <a className='anime-review-content' onClick={(e) => {
-                            setShowModal(true)
-                            setTypeForm('create')
-                        }}>Press to create a review!</a>
-                    </div>
+
+                    {sessionUser && (
+                        <div className='anime-review' >
+                            <a className='anime-review-content' onClick={(e) => {
+                                setShowModal(true)
+                                setTypeForm('create')
+                            }}>Press to create a review!</a>
+                        </div>
+                    )}
+
                     {reviews?.map((review) => (
                         <div className='anime-review' >
                             <a className='anime-review-content'>{review.content}</a>

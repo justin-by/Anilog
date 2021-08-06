@@ -46,6 +46,7 @@ def create_review(animeId):
         return {"review": review.to_dict()}
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
 
+# Update a review
 @review_routes.route('<int:reviewId>/anime/<int:animeId>', methods=["PATCH"])
 def update_review(reviewId, animeId):
     form = UpdateReviewForm()

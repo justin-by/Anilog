@@ -6,13 +6,14 @@ class AnimeList(db.Model):
     userId = db.Column(db.Integer, db.ForeignKey('users.id'))
     animeId = db.Column(db.Integer, db.ForeignKey('anime.id'))
     status = db.Column(db.String(20), nullable=False)
-    rating = db.Column(db.Integer, nullable=False)
+    rating = db.Column(db.Integer)
 
     user = db.relationship('User', back_populates='table_anime')
     anime = db.relationship('Anime', back_populates='table_anime')
 
     def to_dict(self):
         return {
+            'id': self.id,
             'status': self.status,
             'rating': self.rating,
             'anime': self.anime.to_dict()
