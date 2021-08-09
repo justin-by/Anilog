@@ -57,7 +57,7 @@ const NavBar = ({ modalToggle }) => {
             {sessionUser ?
               <NavLink to={`/user/${sessionUser.username}/list`} exact={true} style={{ textDecoration: 'none' }} activeClassName="active">
                 <span id="browse-button" className="nav-links">
-                  My List
+                  My Log
                 </span>
               </NavLink> : null}
 
