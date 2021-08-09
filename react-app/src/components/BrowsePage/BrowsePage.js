@@ -13,16 +13,50 @@ const BrowsePage = () => {
     const [showGenreDropdown, setShowGenreDropdown] = useState('none')
     const [showYearsDropdown, setShowYearsDropdown] = useState('none')
     const [showSeasonDropdown, setShowSeasonDropdown] = useState('none')
-    const [title, setTitle] = useState('')
-    const [genre, setGenre] = useState('')
+    const [title, setTitle] = useState(null)
+    const [genre, setGenre] = useState(null)
     const [year, setYear] = useState(2021)
-    const [season, setSeason] = useState('')
+    const [season, setSeason] = useState(null)
 
-    const filterObj = {}
+
+
+    const filterObj = () => {
+        if (title && genre && year && season) {
+            return { title, genre, year, season }
+        } else if (title && genre && year) {
+            return { title, genre, year }
+        } else if (title && genre && season) {
+            return { title, genre, season }
+        } else if (title && year && season) {
+            return { title, year, season }
+        } else if (genre && year && season) {
+            return { genre, year, season }
+        } else if (title && genre) {
+            return { title, genre }
+        } else if (title && year) {
+            return { title, year }
+        } else if (title && season) {
+            return { title, season }
+        } else if (genre && year) {
+            return { genre, year }
+        } else if (genre && season) {
+            return { genre, season }
+        } else if (year && season) {
+            return { year, season }
+        } else if (title) {
+            return { title }
+        } else if (genre) {
+            return { genre }
+        } else if (year) {
+            return { year }
+        } else if (season) {
+            return { season }
+        }
+    }
 
 
     useEffect(() => {
-        dispatch(animeActions.getAllAnime({ title, genre, year, season }))
+        dispatch(animeActions.getAllAnime(filterObj()))
     }, [dispatch, genre, title, year, season])
 
     const seasonFormat = (season) => {
@@ -32,7 +66,7 @@ const BrowsePage = () => {
             return 'Winter'
         } else if (season === 'SPRING') {
             return 'Spring'
-        } else if (season ==='SUMMER') {
+        } else if (season === 'SUMMER') {
             return 'Summer'
         }
     }

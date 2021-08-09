@@ -19,6 +19,7 @@ class Anime(db.Model):
     episodes = db.Column(db.Integer)
     popularity = db.Column(db.Integer)
     ranking = db.Column(db.Integer)
+    genres = db.Column(db.String)
 
     review = db.relationship('Review', back_populates='anime')
     character = db.relationship('Character', back_populates='anime')
@@ -41,5 +42,6 @@ class Anime(db.Model):
             'year': self.year,
             'episodes': self.episodes,
             'popularity': self.popularity,
-            'ranking': self.ranking
+            'ranking': self.ranking,
+            'genres': self.genres
         }

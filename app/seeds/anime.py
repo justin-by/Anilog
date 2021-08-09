@@ -22,7 +22,8 @@ def seed_anime():
             desc=anime["description"], trailer=check_trailer(anime),
             mediumPic=anime["coverImage"]["medium"], largePic=anime["coverImage"]["large"] if anime["coverImage"]["large"] else None, extraLargePic=anime["coverImage"]["extraLarge"],
             averageColor=anime["coverImage"]["color"], bannerPic=anime["bannerImage"], season=anime["season"], year=anime["seasonYear"],
-            episodes=anime["episodes"], popularity=anime["popularity"], ranking=anime["rankings"][0]["rank"] if anime["rankings"] else None)
+            episodes=anime["episodes"], popularity=anime["popularity"], ranking=anime["rankings"][0]["rank"] if anime["rankings"] else None, 
+            genres=[genre for genre in anime["genres"] if anime["genres"]])
         db.session.add(anime)
     db.session.commit()
 

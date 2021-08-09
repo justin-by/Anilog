@@ -21,20 +21,31 @@ def filter_anime():
 
     resultAnime = []
     if allAnime:
-        if 'title' in request.json:
-            resultAnime = ([anime.to_dict() for anime in allAnime if anime.title.startswith(request.json['title'])])
-        if 'title' in request.json and 'year' in request.json:
-            resultAnime = ([anime.to_dict() for anime in allAnime if anime.title.startswith(request.json['title']) if anime.year == request.json['year']])
+        ## Checking default which is just year
+        if 'year' in request.json:
+            resultAnime = ([anime.to_dict() for anime in allAnime if anime.year == request.json['year']])
 
-        # if 'year' in request.json:
-        #     resultAnime = ([anime.to_dict() for anime in allAnime if anime.year == request.json['year']])
+        ## Checking all possible (2) combinations with year
+        if 'year' in request.json and 'title' in request.json:
+            resultAnime = ([anime.to_dict() for anime in allAnime if anime.year == request.json['year'] if anime.title.startswith(request.json['title'])])
+        if 'year' in request.json and 'genre' in request.json:
+            resultAnime = ([anime.to_dict() for anime in allAnime if anime.year == request.json['year'] if request.json['genre'] in anime.genres])
+        if 'year' in request.json and 'season' in request.json:
+            resultAnime = ([anime.to_dict() for anime in allAnime if anime.year == request.json['year'] if anime.season == request.json['season']])
 
-        # if 'genre' in request.json:
-        #     allAnime = allAnime + [anime.to_dict() for anime in allAnime if anime.title == request.json['title']]
+        ## Checking all possible (3) combinations with year
+        if 'year' in request.json and 'title' in request.json and 'genre' in request.json:
+            resultAnime = ([anime.to_dict() for anime in allAnime if anime.year == request.json['year'] if anime.title.startswith(request.json['title']) if request.json['genre'] in anime.genres])
+        if 'year' in request.json and 'title' in request.json and 'season' in request.json:
+            resultAnime = ([anime.to_dict() for anime in allAnime if anime.year == request.json['year'] if anime.title.startswith(request.json['title']) if anime.season == request.json['season']])
+        if 'year' in request.json and 'genre' in request.json and 'season' in request.json:
+            resultAnime = ([anime.to_dict() for anime in allAnime if anime.year == request.json['year'] if request.json['genre'] in anime.genres if anime.season == request.json['season']])
 
-        # if 'status' in request.json:
-        #     resultAnime = ([anime.to_dict() for anime in allAnime if anime.status == request.json['year']])
+        ## Checking all marked (4) combinations with yea
 
+        if 'year' in request.json and 'title' in request.json and 'genre' in request.json and 'season' in request.json:
+            resultAnime = ([anime.to_dict() for anime in allAnime if anime.year == request.json['year'] if anime.title.startswith(request.json['title']) if request.json['genre'] in anime.genres if anime.season == request.json['season']])
+            
     return {'animes': resultAnime}
 
 
