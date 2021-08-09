@@ -36,6 +36,9 @@ Dealing with a third-party API for the very first time was a challenging but fun
 
 Things that I plan to implement in the future:
 - Styling
+  - Revamping splash page
+  - Animations on anime card load
+  - Animations on modals
 - Display more data on Anime page
 - Individual character pages
 - Pagination / Infinite scrolling
