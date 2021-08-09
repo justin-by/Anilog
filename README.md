@@ -7,6 +7,8 @@ This site presents two main features:
 - Viewing and filtering anime
 - Organizing anime onto a user's personal list
 
+Live Site: https://anilog-proj.herokuapp.com/
+
 <br>
 
 ## Viewing and Filtering Anime
