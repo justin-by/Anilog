@@ -25,7 +25,6 @@ const NavBar = ({ modalToggle }) => {
   const onClose = () => {
     setShowModal(false);
     setForm("");
-    history.push("/");
   };
 
   if (modalToggle) {
