@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import * as animeActions from "../../store/anime";
 import { useHistory } from 'react-router-dom';
+import * as animeStatusActions from '../../store/animestatus'
 
 
 const BrowsePage = () => {
@@ -17,6 +18,7 @@ const BrowsePage = () => {
     const [genre, setGenre] = useState(null)
     const [year, setYear] = useState(2021)
     const [season, setSeason] = useState(null)
+
 
 
 
@@ -58,6 +60,10 @@ const BrowsePage = () => {
     useEffect(() => {
         dispatch(animeActions.getAllAnime(filterObj()))
     }, [dispatch, genre, title, year, season])
+
+    useEffect(() => {
+        dispatch(animeStatusActions.resetAnimeStatus())
+      }, [dispatch])
 
     const seasonFormat = (season) => {
         if (season === 'FALL') {

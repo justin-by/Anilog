@@ -1,10 +1,10 @@
 import { useSelector, useDispatch } from 'react-redux';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import LoginForm from './auth/LoginForm'
 import SignUpForm from './auth/SignUpForm'
 import { Modal } from '../context/Modal'
-import * as sessionActions from "../store/session";
+import * as sessionActions from "../store/session"
 import "./NavBar.css";
 
 const NavBar = ({ modalToggle }) => {
@@ -15,7 +15,6 @@ const NavBar = ({ modalToggle }) => {
   const [form, setForm] = useState("login")
 
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const showForm = (e) => {
     setForm(e.target.value);
@@ -30,6 +29,7 @@ const NavBar = ({ modalToggle }) => {
   if (modalToggle) {
     setShowModal(true);
   }
+
   return (
     <>
       <nav>

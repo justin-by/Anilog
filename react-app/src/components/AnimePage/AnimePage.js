@@ -134,19 +134,19 @@ const AnimePage = () => {
                     <li className='status-dropdown-select' onClick={() => {
                         dispatch(animeStatusActions.updateAnimeStatus(animeId, 'WATCHED', { status: "WATCHED" }))
                         setShowDropdown('none')
-                        }}>
+                    }}>
                         Set as Complete
                     </li>
                     <li className='status-dropdown-select' onClick={() => {
                         dispatch(animeStatusActions.updateAnimeStatus(animeId, 'WATCHING', { status: "WATCHING" }))
                         setShowDropdown('none')
-                        }}>
+                    }}>
                         Set as Watching
                     </li>
                     <li className='status-dropdown-select' onClick={() => {
                         dispatch(animeStatusActions.updateAnimeStatus(animeId, 'PLANNING', { status: "PLANNING" }))
                         setShowDropdown('none')
-                        }}>
+                    }}>
                         Set as Planning
                     </li>
                 </ul>
