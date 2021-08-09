@@ -1,134 +1,45 @@
-# Flask React Project
+# Anilog
 
-This is the starter for the Flask React project.
+![Anilog logo](https://i.imgur.com/YTjOfAs.jpg)
 
-## Getting started
+Anilog is a anime platform website that allows users to discover and interact with anime.
+This site presents two main features: 
+- Viewing and filtering anime
+- Organizing anime onto a user's personal list
 
-1. Clone this repository (only this branch)
+<br>
 
-   ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
-   ```
+## Viewing and Filtering Anime
 
-2. Install dependencies
+The browse page sorts anime by the year 2021 by default and allows any user to make any modifications in the filter. Users can search for anime by any combination of the anime's title, genre, year, and season. 
 
-      ```bash
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-      ```
+<br>
 
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
+![Anilog gif browse page](https://i.imgur.com/lX7xmAE.gif)
 
-5. Get into your pipenv, migrate your database, seed your database, and run your flask app
+## Organizing anime onto a user's personal list
 
-   ```bash
-   pipenv shell
-   ```
+The Anime List page is only accessible and visible by users that are signed in. When a user has logged in, the "My Log" option will be available in the navigation bar. Clicking on this option will bring users to their personal and private anime list where shows can be sorted under the categories:
+- Watched
+- Watching
+- Plan to Watch
 
-   ```bash
-   flask db upgrade
-   ```
+<br>
 
-   ```bash
-   flask seed all
-   ```
+![Anilog gif list page](https://i.imgur.com/HeK4pl6.gif)
 
-   ```bash
-   flask run
-   ```
+<br>
 
-6. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+### Challenges and Future Plans
 
-***
-*IMPORTANT!*
-   If you add any python dependencies to your pipfiles, you'll need to regenerate your requirements.txt before deployment.
-   You can do this by running:
+Dealing with a third-party API for the very first time was a challenging but fun task. I had to discover a way to handle the JSON response I was receiving and translate it into workable data in my backend. As I've had to make switches from the backend and frontend, I was able to fully understand the responsibilities and functionality that each part holds. Another big challenge was allowing the user to filter anime based on the four categories. I had to figure out a way to detect whether a user has only selected one, two, three, or all options to filter by. I solved this by simple setting up many conditionals that would cover all possibile combinations of active filters.
 
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
+Things that I plan to implement in the future:
+- Styling
+- Display more data on Anime page
+- Individual character pages
+- Pagination / Infinite scrolling
+- View random anime feature
 
-*ALSO IMPORTANT!*
-   psycopg2-binary MUST remain a dev dependency because you can't install it on apline-linux.
-   There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
-***
 
-## Deploy to Heroku
 
-1. Before you deploy, don't forget to run the following command in order to
-ensure that your production environment has all of your up-to-date
-dependencies. You only have to run this command when you have installed new
-Python packages since your last deployment, but if you aren't sure, it won't
-hurt to run it again.
-
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
-
-2. Create a new project on Heroku
-3. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres"
-4. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
-5. Run
-
-   ```bash
-   heroku login
-   ```
-
-6. Login to the heroku container registry
-
-   ```bash
-   heroku container:login
-   ```
-
-7. Update the `REACT_APP_BASE_URL` variable in the Dockerfile.
-   This should be the full URL of your Heroku app: i.e. "https://flask-react-aa.herokuapp.com"
-8. Push your docker container to heroku from the root directory of your project.
-   (If you are using an M1 mac, follow [these steps below](#for-m1-mac-users) instead, then continue on to step 9.)
-   This will build the Dockerfile and push the image to your heroku container registry.
-
-   ```bash
-   heroku container:push web -a {NAME_OF_HEROKU_APP}
-   ```
-
-9. Release your docker container to heroku
-
-      ```bash
-      heroku container:release web -a {NAME_OF_HEROKU_APP}
-      ```
-
-10. set up your database
-
-      ```bash
-      heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
-      heroku run -a {NAME_OF_HEROKU_APP} flask seed all
-      ```
-
-11. Under Settings find "Config Vars" and add any additional/secret .env
-variables.
-
-12. profit
-
-### For M1 Mac users
-
-(Replaces **Step 8**)
-
-1. Build image with linux platform for heroku servers. Replace
-{NAME_OF_HEROKU_APP} with your own tag:
-
-   ```bash=
-   docker buildx build --platform linux/amd64 -t {NAME_OF_HEROKU_APP} .
-   ```
-
-2. Tag your app with the url for your apps registry. Make sure to use the name
-of your Heroku app in the url and tag name:
-
-   ```bash=2
-   docker tag {NAME_OF_HEROKU_APP} registry.heroku.com/{NAME_OF_HEROKU_APP}/web
-   ```
-
-3. Use docker to push the image to the Heroku container registry:
-
-   ```bash=3
-   docker push registry.heroku.com/{NAME_OF_HEROKU_APP}/web
-   ```
