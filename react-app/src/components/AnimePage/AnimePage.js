@@ -62,11 +62,14 @@ const AnimePage = () => {
                         <div className='anime-picture'>
                             <img src={foundAnime.extraLargePic} className='cover' />
                             <div className='anime-page-status'>
-                                <a className='anime-status-button'>{status ? capitalize(status) : (
-                                    <a onClick={() =>
-                                        setShowModal(true)
-                                    }>Add to List</a>
-                                )}</a>
+                                {sessionUser ? (
+                                    <a className='anime-status-button'>{status ? capitalize(status) : (
+                                        <a onClick={() =>
+                                            setShowModal(true)
+                                        }>Add to List</a>
+                                    )}</a>
+                                ) : <a>Sign in for list features</a>}
+
                                 {sessionUser && status && (
                                     <i className="fas fa-chevron-down" onClick={(e) => setShowDropdown(showDropdown === 'block' ? 'none' : 'block')}></i>
                                 )}
@@ -128,13 +131,22 @@ const AnimePage = () => {
                     </div>
                 </div>
                 <ul className='status-dropdown-container' style={{ display: showDropdown === 'block' ? 'block' : 'none' }}>
-                    <li className='status-dropdown-select' onClick={() => dispatch(animeStatusActions.updateAnimeStatus(animeId, 'WATCHED', { status: "WATCHED" }))}>
+                    <li className='status-dropdown-select' onClick={() => {
+                        dispatch(animeStatusActions.updateAnimeStatus(animeId, 'WATCHED', { status: "WATCHED" }))
+                        setShowDropdown('none')
+                        }}>
                         Set as Complete
                     </li>
-                    <li className='status-dropdown-select' onClick={() => dispatch(animeStatusActions.updateAnimeStatus(animeId, 'WATCHING', { status: "WATCHING" }))}>
+                    <li className='status-dropdown-select' onClick={() => {
+                        dispatch(animeStatusActions.updateAnimeStatus(animeId, 'WATCHING', { status: "WATCHING" }))
+                        setShowDropdown('none')
+                        }}>
                         Set as Watching
                     </li>
-                    <li className='status-dropdown-select' onClick={() => dispatch(animeStatusActions.updateAnimeStatus(animeId, 'PLANNING', { status: "PLANNING" }))}>
+                    <li className='status-dropdown-select' onClick={() => {
+                        dispatch(animeStatusActions.updateAnimeStatus(animeId, 'PLANNING', { status: "PLANNING" }))
+                        setShowDropdown('none')
+                        }}>
                         Set as Planning
                     </li>
                 </ul>

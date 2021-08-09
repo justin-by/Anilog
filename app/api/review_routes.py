@@ -36,7 +36,6 @@ def anime_review(reviewId, animeId):
 @review_routes.route('/anime/<int:animeId>', methods=["POST"])
 @login_required
 def create_review(animeId):
-    print('Hello 222222')
     form = ReviewForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
     if form.validate_on_submit():

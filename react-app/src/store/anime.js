@@ -21,6 +21,21 @@ export const getAnime = (animeId) => async (dispatch) => {
     }
 }
 
+export const getAllAnime = (filterObj) => async (dispatch) => {
+    const res = await fetch(`/api/anime`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(filterObj)
+    })
+
+    if (res.ok) {
+        const anime = await res.json();
+        dispatch(setAnime(anime))
+    }
+}
+
 
 const initialState = {};
 

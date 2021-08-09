@@ -37,8 +37,8 @@ const NavBar = ({ modalToggle }) => {
         <div className='nav-wrapper'>
           <div className='logo-container'>
             <NavLink id="logo-nav-link" to="/" exact={true} style={{ textDecoration: 'none' }}>
-              <div>
-                LPlaceholder
+              <div className='logo-container'>
+                <img className='logo' src='https://i.imgur.com/Jeafssy.jpg' />
               </div>
             </NavLink>
           </div>

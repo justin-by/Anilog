@@ -9,12 +9,24 @@ nav {
     left: 0;
     position: fixed;
     top: 0;
-    transition: background .8s ease,color .2s;
+    transition: background-image .8s ease,color .2s;
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
     width: 100%;
     z-index: 999;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    width: 200px;
+    height: 100px;
+}
+
+.logo {
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .nav-wrapper {
