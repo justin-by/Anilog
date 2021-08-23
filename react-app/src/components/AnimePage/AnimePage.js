@@ -17,7 +17,7 @@ const AnimePage = () => {
     const foundAnime = useSelector((state) => state.animeReducer["anime"])
     const foundStatus = useSelector((state) => state.animeStatusReducer["status"])
     const dispatch = useDispatch();
-
+    
     const { animeId } = useParams();
 
     const [showDropdown, setShowDropdown] = useState('none')

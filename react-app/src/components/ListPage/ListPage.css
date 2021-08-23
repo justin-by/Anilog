@@ -142,6 +142,10 @@
     font-weight: 400;
 }
 
+.anime-list-title:hover {
+    cursor: pointer;
+}
+
 
 
 

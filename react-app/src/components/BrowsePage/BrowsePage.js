@@ -14,6 +14,7 @@ const BrowsePage = () => {
     const [showGenreDropdown, setShowGenreDropdown] = useState('none')
     const [showYearsDropdown, setShowYearsDropdown] = useState('none')
     const [showSeasonDropdown, setShowSeasonDropdown] = useState('none')
+    
     const [title, setTitle] = useState(null)
     const [genre, setGenre] = useState(null)
     const [year, setYear] = useState(2021)

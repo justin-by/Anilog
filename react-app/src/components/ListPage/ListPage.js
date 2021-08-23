@@ -1,5 +1,6 @@
 import './ListPage.css'
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router';
 import { useEffect, useState } from 'react';
 import * as animeListActions from '../../store/listanime'
 import { Modal } from '../../context/Modal';
@@ -7,6 +8,7 @@ import UpdateAnimeModal from '../UpdateAnimeModal/UpdateAnimeModal';
 
 const ListPage = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const foundAnime = useSelector((state) => state.animeListReducer["anime"])
 
     const [status, setStatus] = useState("WATCHED")
@@ -83,7 +85,7 @@ const ListPage = () => {
                                             </div>
                                         </div>
                                         <div className='list-entry-title'>
-                                            <a>
+                                            <a className='anime-list-title' onClick={(e) => history.push(`/anime/${anime.anime.id}`)}>
                                                 {anime.anime.title}
                                             </a>
                                         </div>
