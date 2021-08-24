@@ -119,7 +119,7 @@ html, body {
     align-items: center;
 }
 
-.anime-desc-title a {
+.anime-desc-title span {
     padding-left: 16px;
     color: rgba(159,173,189, 1);
     font-size: 1.2rem;

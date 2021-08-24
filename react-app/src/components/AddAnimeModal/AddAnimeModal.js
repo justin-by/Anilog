@@ -48,9 +48,9 @@ const AddAnimeModal = ({ showModal, setShowModal, animeId }) => {
     <form id="add-anime-form" onSubmit={onSubmit}>
       {errors && errors.length > 0 ? (
         <div className='anime-errors-div'>
-          <a className='anime-error'>Oops!</a>
+          <span className='anime-error'>Oops!</span>
           {errors.map((error, ind) => (
-            <a key={ind} className='review-error'>{error}</a>
+            <span key={ind} className='review-error'>{error}</span>
           ))}
         </div>
       ) : null}
@@ -81,7 +81,7 @@ const AddAnimeModal = ({ showModal, setShowModal, animeId }) => {
         />
       </div>
       <div id="post-review-div">
-        <a onClick={(e) => onSubmit(e)}>Add to List</a>
+        <span onClick={(e) => onSubmit(e)}>Add to List</span>
       </div>
     </form>
   );

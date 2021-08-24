@@ -6,7 +6,6 @@ import { useDispatch } from 'react-redux';
 // import UsersList from './components/UsersList';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import User from './components/User';
 import Background from './components/Background/Background';
 import ListPage from './components/ListPage/ListPage';
 import BrowsePage from './components/BrowsePage/BrowsePage'

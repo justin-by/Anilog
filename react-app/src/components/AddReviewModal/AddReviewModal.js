@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import * as reviewActions from "../../store/reviews";
 
@@ -43,9 +43,9 @@ const AddReviewModal = ({ showModal, setShowModal, animeId }) => {
     <form id="add-review-form" onSubmit={onSubmit}>
       {errors && errors.length > 0 ? (
         <div className='review-errors-div'>
-          <a className='review-error'>Oops!</a>
+          <span className='review-error'>Oops!</span>
           {errors.map((error, ind) => (
-            <a key={ind} className='review-error'>{error}</a>
+            <span key={ind} className='review-error'>{error}</span>
           ))}
         </div>
       ) : null}
@@ -72,7 +72,7 @@ const AddReviewModal = ({ showModal, setShowModal, animeId }) => {
         />
       </div>
       <div id="post-review-div">
-        <a onClick={(e) => onSubmit(e)}>Post review</a>
+        <span onClick={(e) => onSubmit(e)}>Post review</span>
       </div>
     </form>
   );

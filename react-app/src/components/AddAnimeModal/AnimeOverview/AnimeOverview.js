@@ -1,6 +1,6 @@
 import './AnimeOverview.css'
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 
 import React from 'react'
@@ -10,7 +10,7 @@ import * as characterActions from "../../../store/characters";
 
 
 const AnimeOverview = () => {
-    const sessionUser = useSelector((state) => state.session.user);
+
     const foundAnime = useSelector((state) => state.animeReducer["anime"])
     const characters = useSelector((state) => state.charactersReducer["characters"])
     const dispatch = useDispatch();
