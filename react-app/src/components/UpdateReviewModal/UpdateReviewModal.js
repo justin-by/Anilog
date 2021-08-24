@@ -44,9 +44,9 @@ const UpdateReviewModal = ({ showModal, setShowModal, animeId, reviewId, reviewI
     <form id="add-review-form" onSubmit={onSubmit}>
       {errors && errors.length > 0 ? (
         <div className='review-errors-div'>
-          <a className='review-error'>Oops!</a>
+          <span className='review-error'>Oops!</span>
           {errors.map((error, ind) => (
-            <a key={ind} className='review-error'>{error}</a>
+            <span key={ind} className='review-error'>{error}</span>
           ))}
         </div>
       ) : null}
@@ -73,7 +73,7 @@ const UpdateReviewModal = ({ showModal, setShowModal, animeId, reviewId, reviewI
         />
       </div>
       <div id="post-review-div">
-        <a onClick={(e) => onSubmit(e)}>Update review</a>
+        <span onClick={(e) => onSubmit(e)}>Update review</span>
       </div>
     </form>
   );

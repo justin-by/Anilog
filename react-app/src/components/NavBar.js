@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
-import React, { useEffect, useState } from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import LoginForm from './auth/LoginForm'
 import SignUpForm from './auth/SignUpForm'
 import { Modal } from '../context/Modal'
@@ -37,7 +37,7 @@ const NavBar = ({ modalToggle }) => {
           <div className='logo-container'>
             <NavLink id="logo-nav-link" to="/" exact={true} style={{ textDecoration: 'none' }}>
               <div className='logo-container'>
-                <img className='logo' src='https://i.imgur.com/Jeafssy.jpg' />
+                <img className='logo' alt='anilog logo' src='https://i.imgur.com/Jeafssy.jpg' />
               </div>
             </NavLink>
           </div>
@@ -87,7 +87,7 @@ const NavBar = ({ modalToggle }) => {
           )}
           {sessionUser ? (
             <div className='icon-logout-holder'>
-              <img src='https://i.imgur.com/HnMCw1S.png' className='profile-icon' />
+              <img src='https://i.imgur.com/HnMCw1S.png' alt='profile' className='profile-icon' />
               <button
                 id="login-button"
                 className="nav-button logout-button"

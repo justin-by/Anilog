@@ -51,9 +51,9 @@ const UpdateAnimeModal = ({ showModal, setShowModal,animeListId, originalStatus 
     <form id="add-anime-form" onSubmit={onSubmit}>
       {errors && errors.length > 0 ? (
         <div className='anime-errors-div'>
-          <a className='anime-error'>Oops!</a>
+          <span className='anime-error'>Oops!</span>
           {errors.map((error, ind) => (
-            <a key={ind} className='review-error'>{error}</a>
+            <span key={ind} className='review-error'>{error}</span>
           ))}
         </div>
       ) : null}
@@ -85,10 +85,10 @@ const UpdateAnimeModal = ({ showModal, setShowModal,animeListId, originalStatus 
       </div>
       <div className='update-buttons-holder'>
         <div id="post-anime-div">
-            <a onClick={(e) => onSubmit(e)}>Update</a>
+            <span onClick={(e) => onSubmit(e)}>Update</span>
         </div>
         <div id="delete-anime-div">
-            <a onClick={(e) => onDelete(e)}>Remove</a>
+            <span onClick={(e) => onDelete(e)}>Remove</span>
         </div>
       </div>
     </form>

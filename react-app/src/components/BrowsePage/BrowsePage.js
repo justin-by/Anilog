@@ -60,7 +60,7 @@ const BrowsePage = () => {
 
     useEffect(() => {
         dispatch(animeActions.getAllAnime(filterObj()))
-    }, [dispatch, genre, title, year, season])
+    }, [dispatch, genre, title, year, season, filterObj])
 
     useEffect(() => {
         dispatch(animeStatusActions.resetAnimeStatus())

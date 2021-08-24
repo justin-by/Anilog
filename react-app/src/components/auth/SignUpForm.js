@@ -58,9 +58,9 @@ const SignUpForm = ({ showModal, setShowModal }) => {
 
       {errors && errors.length > 0 ? (
         <div className='review-errors-div'>
-          <a className='review-error'>Oops!</a>
+          <span className='review-error'>Oops!</span>
           {errors.map((error, ind) => (
-            <a key={ind} className='review-error'>{error}</a>
+            <span key={ind} className='review-error'>{error}</span>
           ))}
         </div>
       ) : null}

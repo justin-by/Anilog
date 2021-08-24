@@ -22,7 +22,7 @@ const ReviewsContent = () => {
 
     useEffect(() => {
         dispatch(reviewActions.getAnimeReviews(animeId))
-    }, [dispatch])
+    }, [dispatch, animeId])
 
     useEffect(() => {
         setReviews(stateReviews);
@@ -41,19 +41,19 @@ const ReviewsContent = () => {
 
                     {sessionUser && (
                         <div className='anime-review' >
-                            <a className='anime-review-content-click' onClick={(e) => {
+                            <span className='anime-review-content-click' onClick={(e) => {
                                 setShowModal(true)
                                 setTypeForm('create')
-                            }}>Press to create a review!</a>
+                            }}>Press to create a review!</span>
                         </div>
                     )}
 
                     {reviews?.map((review) => (
                         <div className='anime-review' >
-                            <a className='anime-review-username'>{review.username}:</a>
-                            <a className='anime-review-content'>{review.content}</a>
+                            <span className='anime-review-username'>{review.username}:</span>
+                            <span className='anime-review-content'>{review.content}</span>
                             <div className='review-extra'>
-                                <a className='anime-review-rating'>{review.rating}/10</a>
+                                <span className='anime-review-rating'>{review.rating}/10</span>
                                 {sessionUser && review.userId === sessionUser.id && (
                                     <>
                                         <i className="fas fa-pencil-alt" onClick={(e) => {

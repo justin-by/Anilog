@@ -85,9 +85,9 @@ const ListPage = () => {
                                             </div>
                                         </div>
                                         <div className='list-entry-title'>
-                                            <a className='anime-list-title' onClick={(e) => history.push(`/anime/${anime.anime.id}`)}>
+                                            <span className='anime-list-title' onClick={(e) => history.push(`/anime/${anime.anime.id}`)}>
                                                 {anime.anime.title}
-                                            </a>
+                                            </span>
                                         </div>
                                         {anime.rating > 1 ?
                                             <div className='list-entry-score'>
