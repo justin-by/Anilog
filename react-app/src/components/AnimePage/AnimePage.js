@@ -68,7 +68,7 @@ const AnimePage = () => {
                                         setShowModal(true)
                                     }>Add to List</span>
                                 )}</span>
-                            ) : <span>Sign in for list features</span>}
+                            ) : <span>Sign in for more</span>}
 
                             {sessionUser && status && (
                                 <i className="fas fa-chevron-down" onClick={(e) => setShowDropdown(showDropdown === 'block' ? 'none' : 'block')}></i>

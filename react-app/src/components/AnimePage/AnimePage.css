@@ -129,7 +129,12 @@ html, body {
 .anime-desc-content {
     width: 100%;
     height: 180px;
+    overflow-y: scroll;
 }
+
+.anime-desc-content::-webkit-scrollbar {
+    display: none;
+  }
 
 .anime-desc-content p {
     color: rgba(114,138,161, 1);
