@@ -18,15 +18,14 @@ const UpdateAnimeModal = ({ showModal, setShowModal,animeListId, originalStatus 
   }, [showModal, setShowModal]);
 
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    const data = dispatch(animeListActions.updateAnime({
+    const data = await dispatch(animeListActions.updateAnime({
         'status': status,
         'rating': (rating === '' ? 0 : rating)
     }, animeListId, originalStatus));
-    if (data.errors) {
+    if (data) {
       setErrors(data.errors);
-      console.log(errors)
     } else {
       setShowModal(false);
     }
