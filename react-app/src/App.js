@@ -41,7 +41,7 @@ function App() {
         <ProtectedRoute path='/user/:username/list' exact={true} >
           <ListPage />
         </ProtectedRoute>
-        <Route path='*'>
+        <Route>
           <NotFoundPage />
         </Route>
       </Switch>

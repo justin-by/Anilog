@@ -9,6 +9,7 @@ import * as animeActions from '../../store/anime'
 import * as animeStatusActions from '../../store/animestatus'
 import AddAnimeModal from '../AddAnimeModal/AddAnimeModal';
 import { Modal } from '../../context/Modal';
+import NotFoundPage from '../404/404';
 
 
 
@@ -156,7 +157,7 @@ const AnimePage = () => {
                 </Modal>
             }
         </>
-    ) : null
+    ) : <NotFoundPage/>
 
 }
 

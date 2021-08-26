@@ -37,8 +37,12 @@
     color: #a0b1c5;
 }
 
-.not-found-video {
+.not-found-video-container {
     margin-top: 50px;
     display: flex;
     justify-content: center;
+}
+
+.not-found-video {
+    border-radius: 5px;
 }
