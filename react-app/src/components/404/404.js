@@ -6,9 +6,17 @@ const NotFoundPage = () => {
         <>
             <div className='background-home'>
                 <div className='container-home'>
-                    <div className='home-info-holder'>
-                        <div className='welcome-wrapper'>
-                            <span className='welcome-text'>404</span>
+                    <div className='not-found-container'>
+                        <div className='not-found-error'>
+                            404
+                        </div>
+                        <div className='not-found-desc'>
+                            Sorry! The page you requested couldn't be found.
+                        </div>
+                        <div className='not-found-video'>
+                            <video autoplay="autoplay" loop="true" muted> 
+                                <source src='https://i.imgur.com/ZgJ370K.mp4' type="video/mp4"></source>
+                            </video>
                         </div>
                     </div>
                 </div>
