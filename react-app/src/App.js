@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-// import LoginForm from './components/auth/LoginForm';
-// import SignUpForm from './components/auth/SignUpForm';
-// import UsersList from './components/UsersList';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import Background from './components/Background/Background';
 import ListPage from './components/ListPage/ListPage';
 import BrowsePage from './components/BrowsePage/BrowsePage'
 import AnimePage from './components/AnimePage/AnimePage'
+import NotFoundPage from './components/404/404';
 import { authenticate } from './store/session';
 
 function App() {
@@ -43,6 +41,9 @@ function App() {
         <ProtectedRoute path='/user/:username/list' exact={true} >
           <ListPage />
         </ProtectedRoute>
+        <Route path='*'>
+          <NotFoundPage />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
