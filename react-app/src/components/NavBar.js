@@ -12,7 +12,8 @@ const NavBar = ({ modalToggle }) => {
   const sessionUser = useSelector((state) => state.session.user);
 
   const [showModal, setShowModal] = useState(false);
-  const [form, setForm] = useState("login")
+  const [form, setForm] = useState("login");
+  const [showDropdown, setShowDropdown] = useState('none');
 
   const dispatch = useDispatch();
 
@@ -87,7 +88,7 @@ const NavBar = ({ modalToggle }) => {
           )}
           {sessionUser ? (
             <div className='icon-logout-holder'>
-              <img src='https://i.imgur.com/HnMCw1S.png' alt='profile' className='profile-icon' />
+              <img src='https://i.imgur.com/HnMCw1S.png' alt='profile' className='profile-icon' onClick={(e) => setShowDropdown(showDropdown === 'block' ? 'none' : 'block')} />
               <button
                 id="login-button"
                 className="nav-button logout-button"
@@ -95,6 +96,11 @@ const NavBar = ({ modalToggle }) => {
               >
                 Log out
               </button>
+              <div className='profile-dropdown' style={{ display: showDropdown === 'block' ? 'block' : 'none' }}>
+                <li className='profile-dropdown-select'>
+                  Settings
+                </li>
+              </div>
             </div>
           ) : null}
         </div>

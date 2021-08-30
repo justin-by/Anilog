@@ -68,6 +68,26 @@ nav {
     align-items: center;
 }
 
+.profile-dropdown {
+    background-color: rgb(21,31,46);
+    color: rgb(139,160,178);
+    box-shadow: 0 1px 10px 0 rgb(49 54 68 / 15%);
+    width: 100px;
+    height: 40px;
+    margin-top: 130px;
+    position: absolute;
+}
+
+.profile-dropdown-select {
+    list-style-type: none;
+    line-height: 30px;
+    padding: 0 17px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 4px;
+    outline: none;
+}
+
 .nav-button {
     display: flex;
     align-items: center;
@@ -104,6 +124,7 @@ nav {
 }
 
 .profile-icon {
+    cursor: pointer;
     max-width: 65px;
     width: 100%;
 }
