@@ -7,6 +7,7 @@ import Background from './components/Background/Background';
 import ListPage from './components/ListPage/ListPage';
 import BrowsePage from './components/BrowsePage/BrowsePage'
 import AnimePage from './components/AnimePage/AnimePage'
+import EditProfile from './components/EditProfile/EditProfile';
 import NotFoundPage from './components/404/404';
 import { authenticate } from './store/session';
 
@@ -40,6 +41,9 @@ function App() {
         </Route>
         <ProtectedRoute path='/user/:username/list' exact={true} >
           <ListPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/user/:username/settings' exact={true} >
+          <EditProfile />
         </ProtectedRoute>
         <Route>
           <NotFoundPage />

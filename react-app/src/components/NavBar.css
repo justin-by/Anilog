@@ -76,6 +76,7 @@ nav {
     height: 40px;
     margin-top: 130px;
     position: absolute;
+    border-radius: 5px;
 }
 
 .profile-dropdown-select {

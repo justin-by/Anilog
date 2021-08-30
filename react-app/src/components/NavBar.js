@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router';
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import LoginForm from './auth/LoginForm'
@@ -16,6 +17,7 @@ const NavBar = ({ modalToggle }) => {
   const [showDropdown, setShowDropdown] = useState('none');
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const showForm = (e) => {
     setForm(e.target.value);
@@ -97,7 +99,7 @@ const NavBar = ({ modalToggle }) => {
                 Log out
               </button>
               <div className='profile-dropdown' style={{ display: showDropdown === 'block' ? 'block' : 'none' }}>
-                <li className='profile-dropdown-select'>
+                <li className='profile-dropdown-select' onClick={() => history.push(`/user/${sessionUser.username}/settings`)}>
                   Settings
                 </li>
               </div>
