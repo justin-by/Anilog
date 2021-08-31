@@ -40,7 +40,7 @@ const AddReviewModal = ({ showModal, setShowModal, animeId }) => {
 
 
   return (
-    <form id="add-review-form" onSubmit={onSubmit}>
+    <form id="add-review-form" className='general-form' onSubmit={onSubmit}>
       {errors && errors.length > 0 ? (
         <div className='review-errors-div'>
           <span className='review-error'>Oops!</span>

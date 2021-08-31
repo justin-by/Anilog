@@ -37,7 +37,7 @@ const LoginForm = ({ setForm, setShowModal }) => {
   };
 
   return (
-    <form id="login-form" onSubmit={onLogin}>
+    <form id="login-form" className='general-form' onSubmit={onLogin}>
       <div id="login-form-title">
         Welcome Back!
       </div>

@@ -53,7 +53,7 @@ const SignUpForm = ({ showModal, setShowModal }) => {
   }
 
   return (
-    <form id="signup-form" onSubmit={onSignUp}>
+    <form id="signup-form" className='general-form' onSubmit={onSignUp}>
       <div id="signup-form-title">Sign up to access features!</div>
 
       {errors && errors.length > 0 ? (

@@ -47,7 +47,7 @@ const UpdateAnimeModal = ({ showModal, setShowModal,animeListId, originalStatus 
 
 
   return (
-    <form id="add-anime-form" onSubmit={onSubmit}>
+    <form id="add-anime-form" className='general-form' onSubmit={onSubmit}>
       {errors && errors.length > 0 ? (
         <div className='anime-errors-div'>
           <span className='anime-error'>Oops!</span>

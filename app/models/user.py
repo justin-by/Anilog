@@ -13,6 +13,7 @@ class User(db.Model, UserMixin):
 
     review = db.relationship('Review', back_populates='user')
     table_anime = db.relationship('AnimeList', back_populates='user')
+    avatar = db.relationship('Avatar', uselist=False, backref="user")
 
 
     @property

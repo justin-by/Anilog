@@ -28,7 +28,7 @@
     padding: 10px;
   }
   
-  form{
+  #general-form{
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -44,21 +44,25 @@
     box-shadow: 5px 5px #1b8bbf93, -5px 5px #1b8bbf93, 5px -5px #1b8bbf93, -5px -5px #1b8bbf93;
   }
 
-  /* Form Logo styling */
-  form#login-form > div#login-header > #logo-div > img{
-    margin: 100px 20px 0 0;
-    transform: scale(2.1);
+
+  .general-form {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    min-height: 40vh;
+    text-align: left;
+    margin: 5px;
+    padding: 20px;
+    color: black;
+    background-color: #152232;
+    border-radius: .5rem;
+    box-shadow: 5px 5px #1b8bbf93, -5px 5px #1b8bbf93, 5px -5px #1b8bbf93, -5px -5px #1b8bbf93;
   }
-  form#signup-form > div#signup-header > #logo-div > img{
-    margin: 100px 20px 0 0;
-    transform: scale(2.1);
-  }
-  form#add-deck-form > div#add-deck-header > #logo-div > img{
-    margin: 100px 20px 0 0;
-    transform: scale(2.1);
-  }
+
   
-  form div {
+  .general-form div {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,7 +73,7 @@
   }
   
   
-  form label{
+  .general-form label{
     color: #a0b1c5;
     display: flex;
     font-size: 20px;
@@ -81,16 +85,16 @@
     margin-top: 10px;
   }
   
-  form div >label{
+  .general-form div >label{
     margin: 20px 0 0 0;
   }
   
-  form > div{
+  .general-form > div{
     height: 3rem;
     border-radius: .3rem;
   }
   
-  form div > input, form div > select{
+  .general-form div > input, .general-form div > select{
     color: #a0b1c5;
     background-color: #0b1622;
     border-radius: 5px;
@@ -103,7 +107,7 @@
     margin-bottom: 20px;
   }
 
-  form div > input, form div > select{
+  .general-form div > input, .general-form div > select{
     border: none;
   }
   
@@ -123,14 +127,7 @@
     margin: 0 0 0 0 ;
     color: #a0b1c5;
   }
-  div#add-deck-form-title {
-    text-align:right;
-    font-size: 35px;
-    font-weight: bold;
-    width:100%;
-    margin: 50px 0 0 0 ;
-    color: #a0b1c5;
-  }
+
   
   div#login-button-div {
     background-color: #3577ff;
@@ -164,21 +161,8 @@
     margin-bottom: 0px;
     height: 4vh;
   }
-  div#add-deck-button-div {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 4vh;
-  }
 
-  div#add-deck-button-div  button {
-    height: 100%;
-    width: 50%;
-    border: solid 2px rgba(0, 0, 0, 0.158);
-    background-color: #152232;
-    border-radius: 50px;
-    font-size: x-large;
-  }
+
   
   div#demo-button-div {
     background-color: #3577ff;
@@ -248,19 +232,6 @@
     height: 4vh;
   }
   
-  
-  #add-deck-title-div, #add-deck-category-div {
-    height: 10vh;
-    margin: 5px;
-  }
-  
-  div#category-select-div {
-    width: 100%;
-  }
-  
-  div#category-select-div select option{
-    text-align: center;
-  }
   
   .redirect-signup {
     color: #a0b1c5;

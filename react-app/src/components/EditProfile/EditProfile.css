@@ -1,0 +1,123 @@
+.edit-profile-form {
+    width: 100%;
+    min-height: 40vh;
+    text-align: left;
+    padding: 20px;
+    background-color: rgb(21,31,46);
+}
+
+.settings-menu {
+    background-color: red;
+    width: 200px;
+    height: 600px;
+    margin-bottom: 200px;
+    margin-right: 100px;
+}
+
+.container-settings {
+    background-color: #0b1622;
+    margin: 0 auto;
+    height: 100vh;
+    min-width: 320px;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.settings-info-holder {
+    margin-bottom: 200px;
+    display: flex;
+    background-color: red;
+    width: 650px;
+    height: 600px;
+    border-radius: 5px;
+}
+
+.settings-title {
+    color: #a0b1c5;
+    font-size: .9rem;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+.settings-select {
+    color: #a0b1c5;
+    cursor: pointer;
+    font-size: 1.0rem;
+    margin-bottom: 8px;
+    padding: 5px 10px;
+    text-transform: capitalize;
+    border-radius: 3px;
+    font-weight: 400;
+}
+
+.settings-label {
+    color: rgb(159,173,189);
+    font-size: 1.0rem;
+    font-weight: 500;
+
+}
+
+.settings-input {
+    margin-top: 10px;
+    background-color: rgba(11,22,34,.6);
+    border: 0;
+    color: rgb(159,173,189);
+    outline: 0;
+    transition: .2s;
+    height: 40px;
+    width: 100%;
+    padding: 10px;
+    font-size: .9rem;
+    margin-bottom: 20px;
+}
+
+.settings-input-password {
+    margin-top: 10px;
+    background-color: rgba(11,22,34,.6);
+    border: 0;
+    color: rgb(159,173,189);
+    outline: 0;
+    transition: .2s;
+    height: 40px;
+    width: 100%;
+    padding: 10px;
+    font-size: .9rem;
+    margin-bottom: 5px;
+}
+
+.save-settings-button {
+    display: flex;
+    justify-content: right;
+}
+
+.avatar-input-container {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background-color: rgb(11,22,34);
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 4px;
+    outline: 2px dashed rgba(159,173,189,.2);
+    outline-offset: -12px;   
+    color: rgb(133,150,165);
+}
+
+.avatar-input {
+    opacity: 0;
+    cursor: pointer;
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+
+}
+
+.avatar-click-text {
+    font-size: 1.1em;
+    padding: 50px 0;
+    text-align:center;
+}

@@ -99,7 +99,10 @@ const NavBar = ({ modalToggle }) => {
                 Log out
               </button>
               <div className='profile-dropdown' style={{ display: showDropdown === 'block' ? 'block' : 'none' }}>
-                <li className='profile-dropdown-select' onClick={() => history.push(`/user/${sessionUser.username}/settings`)}>
+                <li className='profile-dropdown-select' onClick={() => { 
+                  history.push(`/user/${sessionUser.username}/settings`)
+                  setShowDropdown('none')
+                  }}>
                   Settings
                 </li>
               </div>

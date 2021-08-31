@@ -17,7 +17,6 @@ export const getCharacters = (animeId) => async (dispatch) => {
 
     if (res.ok) {
         const characters = await res.json();
-        console.log('FFFFFFFFF', characters)
         dispatch(setCharacters(characters))
     }
 }
