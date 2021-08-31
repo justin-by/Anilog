@@ -104,13 +104,28 @@
     outline: 2px dashed rgba(159,173,189,.2);
     outline-offset: -12px;   
     color: rgb(133,150,165);
+    margin-right: 20px;
+}
+
+.avatar-example-container {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+
+    margin-top: 10px;
+    background-color: rgb(11,22,34);
+    width: 200px;
+    height: 200px;
+    border-radius: 4px;
+    color: rgb(133,150,165);
 }
 
 .avatar-input {
     opacity: 0;
     cursor: pointer;
     height: 200px;
-    width: 100%;
+    width: 200px;
     overflow: hidden;
     position: absolute;
 
@@ -120,4 +135,8 @@
     font-size: 1.1em;
     padding: 50px 0;
     text-align:center;
+}
+
+.avatar-form {
+    display: flex;
 }

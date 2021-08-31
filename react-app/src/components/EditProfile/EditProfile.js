@@ -1,19 +1,29 @@
 import './EditProfile.css'
 
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
+import * as avatarActions from "../../store/avatar";
+
 
 
 const EditProfile = () => {
     const history = useHistory();
     const dispatch = useDispatch();
 
+    const foundAvatar = useSelector((state) => state.avatarReducer["avatar"])
+    const sessionUser = useSelector((state) => state.session.user);
+    console.log(`FFFFFFFFFFFFF ${foundAvatar}`)
+
 
     const [image, setImage] = useState(null);
 
+    useEffect(() => {
+        dispatch(avatarActions.getAvatar(sessionUser.id))
+    }, [])
 
-    
+
+
 
 
     const onSubmit = async (e) => {
@@ -25,7 +35,7 @@ const EditProfile = () => {
         e.preventDefault();
         const formData = new FormData();
         formData.append("image", image);
-        
+
         // aws uploads can be a bit slow—displaying
 
         const res = await fetch('/api/images', {
@@ -48,6 +58,11 @@ const EditProfile = () => {
         setImage(file);
     }
 
+    const onChangeCalls = (e) => {
+        updateImage(e);
+        handleSubmit(e);
+    }
+
     return (
         <>
             <div className='background-home'>
@@ -59,7 +74,7 @@ const EditProfile = () => {
                     </div>
 
                     <div className='settings-info-holder'>
-                        <form className='edit-profile-form'>
+                        <div className='edit-profile-form'>
                             <div className='settings-label'>Username</div>
                             <input className='settings-input'></input>
 
@@ -72,23 +87,34 @@ const EditProfile = () => {
 
                             <div className='settings-label'>Avatar</div>
                             <div className='avatar-settings-container'></div>
-                            <div className='avatar-input-container'>
-                                <input
-                                    className='avatar-input'
-                                    type="file"
-                                    accept="image/*"
-                                    onChange={updateImage} />
+                            <form onSubmit={handleSubmit} className='avatar-form'>
+
+
+                                <div className='avatar-input-container'>
+                                    <input
+                                        className='avatar-input'
+                                        type="file"
+                                        accept="image/*"
+                                        onChange={updateImage} />
                                     <p className='avatar-click-text'>
                                         Click to upload
                                     </p>
-                            </div>
+                                </div>
+
+                                <div className='avatar-example-container' style={{
+                                    background: `url(${foundAvatar && foundAvatar.url})`
+                                }}>
+                                </div>
+
+                                <button type='submit'>Submit</button>
+                            </form>
                             <div>
 
                             </div>
 
                             <div className='save-settings-button'>Button</div>
 
-                        </form>
+                        </div>
 
                     </div>
 
