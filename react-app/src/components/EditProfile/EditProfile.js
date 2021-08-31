@@ -15,7 +15,6 @@ const EditProfile = () => {
     const sessionUser = useSelector((state) => state.session.user);
     console.log(`FFFFFFFFFFFFF ${foundAvatar}`)
 
-
     const [image, setImage] = useState(null);
 
     useEffect(() => {
@@ -38,18 +37,35 @@ const EditProfile = () => {
 
         // aws uploads can be a bit slow—displaying
 
-        const res = await fetch('/api/images', {
-            method: "POST",
-            body: formData,
-        });
-        if (res.ok) {
-            await res.json()
-            history.push("/images");
-        }
-        else {
-            // a real app would probably use more advanced
-            // error handling
-            console.log("error");
+        if (foundAvatar) {
+            const res = await fetch('/api/images', {
+                method: "PATCH",
+                body: formData,
+            });
+            if (res.ok) {
+                await res.json()
+            }
+            else {
+                // a real app would probably use more advanced
+                // error handling
+                console.log("error");
+            }
+
+        } else {
+
+            const res = await fetch('/api/images', {
+                method: "POST",
+                body: formData,
+            });
+            if (res.ok) {
+                await res.json()
+                history.push("/images");
+            }
+            else {
+                // a real app would probably use more advanced
+                // error handling
+                console.log("error");
+            }
         }
     }
 
