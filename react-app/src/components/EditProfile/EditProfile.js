@@ -13,13 +13,15 @@ const EditProfile = () => {
 
     const foundAvatar = useSelector((state) => state.avatarReducer["avatar"])
     const sessionUser = useSelector((state) => state.session.user);
-    console.log(`FFFFFFFFFFFFF ${foundAvatar}`)
+    
 
     const [image, setImage] = useState(null);
+    const [url, setUrl] = useState();
 
     useEffect(() => {
         dispatch(avatarActions.getAvatar(sessionUser.id))
-    }, [])
+
+    }, [url])
 
 
 
@@ -43,7 +45,9 @@ const EditProfile = () => {
                 body: formData,
             });
             if (res.ok) {
-                await res.json()
+                const urlObj = await res.json();
+                setUrl(urlObj['url']);
+                console.log(url);
             }
             else {
                 // a real app would probably use more advanced
@@ -118,7 +122,7 @@ const EditProfile = () => {
                                 </div>
 
                                 <div className='avatar-example-container' style={{
-                                    background: `url(${foundAvatar && foundAvatar.url})`
+                                    'backgroundImage': `url(${foundAvatar && foundAvatar.url})`
                                 }}>
                                 </div>
 

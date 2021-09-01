@@ -108,6 +108,11 @@
 }
 
 .avatar-example-container {
+    transition: opacity .3s ease-in-out;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
