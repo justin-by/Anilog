@@ -8,7 +8,7 @@ const HomePage = () => {
                 <div className='container-home'>
                     <div className='home-info-holder'>
                         <div className='welcome-wrapper'>
-                            <span className='welcome-text'>Your personal animal platform</span>
+                            <span className='welcome-text'>Your personal anime platform</span>
                             <div className='welcome-under-wrapper'>
                                 <span className='welcome-under-text'>Discover and organize anime in your own personalized list</span>
                             </div>

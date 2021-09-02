@@ -1,11 +1,17 @@
 // Define Action Types
 const SET_AVATAR = 'anime/SET_AVATAR'
+const RESET_AVATAR = 'anime/RESET_AVATAR'
+
 
 
 // Define Action Creators
 const setAvatar = (avatar) => ({
     type: SET_AVATAR,
     payload: avatar
+});
+
+const resetAvatarAction = () => ({
+    type: RESET_AVATAR
 });
 
 
@@ -21,6 +27,11 @@ export const getAvatar = (userId) => async (dispatch) => {
     }
 }
 
+export const resetAvatar = () => async (dispatch) => {
+    console.log('RESET AVATAR')
+    dispatch(resetAvatarAction())
+}
+
 
 
 const initialState = {};
@@ -31,6 +42,9 @@ const avatarReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_AVATAR:
             newState = action.payload;
+            return newState;
+        case RESET_AVATAR:
+            newState = initialState;
             return newState;
         default:
             return state;

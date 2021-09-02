@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import { useHistory } from 'react-router';
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
@@ -6,11 +7,17 @@ import LoginForm from './auth/LoginForm'
 import SignUpForm from './auth/SignUpForm'
 import { Modal } from '../context/Modal'
 import * as sessionActions from "../store/session"
+import * as avatarActions from "../store/avatar";
 import "./NavBar.css";
 
 const NavBar = ({ modalToggle }) => {
 
+
+
   const sessionUser = useSelector((state) => state.session.user);
+  const foundAvatar = useSelector((state) => state.avatarReducer["avatar"])
+
+
 
   const [showModal, setShowModal] = useState(false);
   const [form, setForm] = useState("login");
@@ -32,6 +39,9 @@ const NavBar = ({ modalToggle }) => {
   if (modalToggle) {
     setShowModal(true);
   }
+
+
+
 
   return (
     <>
@@ -90,19 +100,24 @@ const NavBar = ({ modalToggle }) => {
           )}
           {sessionUser ? (
             <div className='icon-logout-holder'>
-              <img src='https://i.imgur.com/HnMCw1S.png' alt='profile' className='profile-icon' onClick={(e) => setShowDropdown(showDropdown === 'block' ? 'none' : 'block')} />
+              <div className='profile-icon-container'>
+                <img src={sessionUser.avatar ? sessionUser.avatar.url : 'https://i.imgur.com/HnMCw1S.png'} alt='profile' className='profile-icon' onClick={(e) => setShowDropdown(showDropdown === 'block' ? 'none' : 'block')} />
+              </div>
+
               <button
                 id="login-button"
                 className="nav-button logout-button"
-                onClick={(e) => dispatch(sessionActions.logout())}
+                onClick={(e) => {
+                  dispatch(avatarActions.resetAvatar())
+                  dispatch(sessionActions.logout())}}
               >
                 Log out
               </button>
               <div className='profile-dropdown' style={{ display: showDropdown === 'block' ? 'block' : 'none' }}>
-                <li className='profile-dropdown-select' onClick={() => { 
+                <li className='profile-dropdown-select' onClick={() => {
                   history.push(`/user/${sessionUser.username}/settings`)
                   setShowDropdown('none')
-                  }}>
+                }}>
                   Settings
                 </li>
               </div>

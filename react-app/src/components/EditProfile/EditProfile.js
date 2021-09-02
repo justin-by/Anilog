@@ -8,24 +8,30 @@ import * as avatarActions from "../../store/avatar";
 
 
 const EditProfile = () => {
+
+
     const history = useHistory();
     const dispatch = useDispatch();
 
     const foundAvatar = useSelector((state) => state.avatarReducer["avatar"])
-    const sessionUser = useSelector((state) => state.session.user);
-    
+
+
 
     const [image, setImage] = useState(null);
+    const [profileImg, setProfileImg] = useState();
     const [url, setUrl] = useState();
 
-    useEffect(() => {
-        dispatch(avatarActions.getAvatar(sessionUser.id))
-
-    }, [url])
 
 
-
-
+    const imageHandler = (e) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+            if (reader.readyState === 2) {
+                setProfileImg(reader.result)
+            }
+        }
+        reader.readAsDataURL(e.target.files[0])
+    }
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -75,12 +81,18 @@ const EditProfile = () => {
 
     const updateImage = (e) => {
         const file = e.target.files[0];
+        (imageHandler(e))
         setImage(file);
     }
 
-    const onChangeCalls = (e) => {
-        updateImage(e);
-        handleSubmit(e);
+    const determineImage = () => {
+        if (profileImg) {
+            return profileImg
+        } else if (foundAvatar) {
+            return foundAvatar.url
+        } else {
+            return 'https://i.imgur.com/HnMCw1S.png'
+        }
     }
 
     return (
@@ -122,7 +134,7 @@ const EditProfile = () => {
                                 </div>
 
                                 <div className='avatar-example-container' style={{
-                                    'backgroundImage': `url(${foundAvatar && foundAvatar.url})`
+                                    'backgroundImage': `url(${determineImage()})`
                                 }}>
                                 </div>
 

@@ -297,7 +297,7 @@ const BrowsePage = () => {
                     <div className='anime-container'>
                         {foundAnimes && foundAnimes.map(anime =>
                         (
-                            <div className='anime-card-holder' onClick={() => history.push(`/anime/${anime.id}`)}>
+                            <div className='anime-card-holder' key={anime.id} onClick={() => history.push(`/anime/${anime.id}`)}>
                                 <div className='anime-card'
                                     style={{
                                         'backgroundImage': `url(${anime.extraLargePic})`

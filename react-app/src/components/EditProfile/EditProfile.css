@@ -117,6 +117,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
+    overflow-y: hidden;
 
     margin-top: 10px;
     background-color: rgb(11,22,34);

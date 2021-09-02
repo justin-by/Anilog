@@ -11,6 +11,7 @@ import EditProfile from './components/EditProfile/EditProfile';
 import NotFoundPage from './components/404/404';
 import { authenticate } from './store/session';
 
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
