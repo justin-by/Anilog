@@ -6,7 +6,7 @@ import animeListReducer from './listanime';
 import animeStatusReducer from './animestatus';
 import animeReducer from './anime';
 import charactersReducer from './characters';
-import avatarReducer from './avatar';
+
 
 
 const rootReducer = combineReducers({
@@ -15,8 +15,7 @@ const rootReducer = combineReducers({
   animeReducer,
   animeListReducer,
   animeStatusReducer,
-  charactersReducer,
-  avatarReducer
+  charactersReducer
 });
 
 

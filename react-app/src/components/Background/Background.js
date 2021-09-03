@@ -22,7 +22,7 @@ const HomePage = () => {
                                 <a href='https://www.linkedin.com/in/j-sung/' target="_blank" rel="noopener noreferrer">
                                     <i className="fab fa-linkedin-in about-link"></i>
                                 </a>
-                                <a href='https://angel.co/u/justin-sung-6' target="_blank" rel="noopener noreferrer">
+                                <a href='https://angel.co/u/justin-by' target="_blank" rel="noopener noreferrer">
                                     <i className="fab fa-angellist about-link"></i>
                                 </a>
                             </div>

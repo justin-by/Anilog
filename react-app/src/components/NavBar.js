@@ -7,7 +7,6 @@ import LoginForm from './auth/LoginForm'
 import SignUpForm from './auth/SignUpForm'
 import { Modal } from '../context/Modal'
 import * as sessionActions from "../store/session"
-import * as avatarActions from "../store/avatar";
 import "./NavBar.css";
 
 const NavBar = ({ modalToggle }) => {
@@ -15,7 +14,6 @@ const NavBar = ({ modalToggle }) => {
 
 
   const sessionUser = useSelector((state) => state.session.user);
-  const foundAvatar = useSelector((state) => state.avatarReducer["avatar"])
 
 
 
@@ -108,8 +106,8 @@ const NavBar = ({ modalToggle }) => {
                 id="login-button"
                 className="nav-button logout-button"
                 onClick={(e) => {
-                  dispatch(avatarActions.resetAvatar())
-                  dispatch(sessionActions.logout())}}
+                  dispatch(sessionActions.logout())
+                }}
               >
                 Log out
               </button>

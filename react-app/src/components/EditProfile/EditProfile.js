@@ -2,20 +2,17 @@ import './EditProfile.css'
 
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router';
-import * as avatarActions from "../../store/avatar";
+
+
+import * as sessionActions from "../../store/session"
 
 
 
 const EditProfile = () => {
 
-
-    const history = useHistory();
     const dispatch = useDispatch();
 
-    const foundAvatar = useSelector((state) => state.avatarReducer["avatar"])
-
-
+    const sessionUser = useSelector((state) => state.session.user);
 
     const [image, setImage] = useState(null);
     const [profileImg, setProfileImg] = useState();
@@ -45,7 +42,7 @@ const EditProfile = () => {
 
         // aws uploads can be a bit slow—displaying
 
-        if (foundAvatar) {
+        if (sessionUser.avatar) {
             const res = await fetch('/api/images', {
                 method: "PATCH",
                 body: formData,
@@ -69,7 +66,6 @@ const EditProfile = () => {
             });
             if (res.ok) {
                 await res.json()
-                history.push("/images");
             }
             else {
                 // a real app would probably use more advanced
@@ -79,17 +75,21 @@ const EditProfile = () => {
         }
     }
 
+    useEffect(() => {
+        dispatch(sessionActions.authenticate(sessionUser.id))
+    }, [url])
+
     const updateImage = (e) => {
         const file = e.target.files[0];
-        (imageHandler(e))
+        imageHandler(e)
         setImage(file);
     }
 
     const determineImage = () => {
         if (profileImg) {
             return profileImg
-        } else if (foundAvatar) {
-            return foundAvatar.url
+        } else if (sessionUser.avatar) {
+            return sessionUser.avatar.url
         } else {
             return 'https://i.imgur.com/HnMCw1S.png'
         }
