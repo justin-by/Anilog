@@ -47,6 +47,7 @@ const EditProfile = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log('hELOOOOOOOOO')
         const formData = new FormData();
         formData.append("image", image);
 
@@ -121,7 +122,7 @@ const EditProfile = () => {
                             {errors.map((error, ind) => (
                                 <p key={ind} className='error-update-message'>{error}</p>
                             ))}
-                            
+
                         </div>
                     ) : null}
 
@@ -161,27 +162,30 @@ const EditProfile = () => {
 
                             <div className='settings-label'>Avatar</div>
                             <div className='avatar-settings-container'></div>
-                            <form onSubmit={handleSubmit} className='avatar-form'>
+                            <form onSubmit={handleSubmit} >
+                                <div className='avatar-form'>
 
 
-                                <div className='avatar-input-container'>
-                                    <input
-                                        className='avatar-input'
-                                        type="file"
-                                        accept="image/*"
-                                        onChange={updateImage} />
-                                    <p className='avatar-click-text'>
-                                        Click to upload
-                                    </p>
+
+                                    <div className='avatar-input-container'>
+                                        <input
+                                            className='avatar-input'
+                                            type="file"
+                                            accept="image/*"
+                                            onChange={updateImage} />
+                                        <p className='avatar-click-text'>
+                                            Click to upload
+                                        </p>
+                                    </div>
+
+                                    <div className='avatar-example-container' style={{
+                                        'backgroundImage': `url(${determineImage()})`
+                                    }}>
+                                    </div>
                                 </div>
-
-                                <div className='avatar-example-container' style={{
-                                    'backgroundImage': `url(${determineImage()})`
-                                }}>
-                                </div>
-
+                                <button className='save-avatar-button' type='submit'>Submit</button>
                             </form>
-                            <button className='save-avatar-button' type='submit'>Submit</button>
+
                             <div>
 
                             </div>
