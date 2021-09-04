@@ -2,7 +2,7 @@ import './EditProfile.css'
 
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { updateUser } from "../../store/session";
 
 import * as sessionActions from "../../store/session"
 
@@ -18,6 +18,12 @@ const EditProfile = () => {
     const [profileImg, setProfileImg] = useState();
     const [url, setUrl] = useState();
 
+    const [username, setUsername] = useState(sessionUser.username)
+    const [email, setEmail] = useState(sessionUser.email)
+    const [password, setPassword] = useState();
+    const [repeatPassword, setRepeatPassword] = useState();
+    const [errors, setErrors] = useState();
+
 
 
     const imageHandler = (e) => {
@@ -30,9 +36,13 @@ const EditProfile = () => {
         reader.readAsDataURL(e.target.files[0])
     }
 
-    const onSubmit = async (e) => {
-        e.preventDefault();
-
+    const onSubmit = async ({ username, email, password, repeatPassword }) => {
+        const data = await dispatch(updateUser(username, email, password, repeatPassword, sessionUser.id))
+        if (data) {
+            setErrors(data);
+        } else {
+            setErrors();
+        }
     };
 
     const handleSubmit = async (e) => {
@@ -77,7 +87,11 @@ const EditProfile = () => {
 
     useEffect(() => {
         dispatch(sessionActions.authenticate(sessionUser.id))
-    }, [url])
+    }, [url, sessionUser.username, sessionUser.email])
+
+    useEffect(() => {
+
+    })
 
     const updateImage = (e) => {
         const file = e.target.files[0];
@@ -100,6 +114,17 @@ const EditProfile = () => {
             <div className='background-home'>
                 <div className='container-settings'>
 
+                    {errors && errors.length > 0 ? (
+                        <div className='errors-message-div'>
+                            <i className="fas fa-times" onClick={() => setErrors()}></i>
+                            <span className='review-error'>Oops!</span>
+                            {errors.map((error, ind) => (
+                                <p key={ind} className='error-update-message'>{error}</p>
+                            ))}
+                            
+                        </div>
+                    ) : null}
+
                     <div className='settings-menu'>
                         <div className='settings-title'>Settings</div>
                         <div className='settings-select'>Account</div>
@@ -108,14 +133,31 @@ const EditProfile = () => {
                     <div className='settings-info-holder'>
                         <div className='edit-profile-form'>
                             <div className='settings-label'>Username</div>
-                            <input className='settings-input'></input>
+                            <input className='settings-input'
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}>
+
+                            </input>
 
                             <div className='settings-label'>Email</div>
-                            <input className='settings-input'></input>
+                            <input className='settings-input'
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            ></input>
 
                             <div className='settings-label'>Change Password</div>
-                            <input className='settings-input-password'></input>
-                            <input className='settings-input'></input>
+                            <input className='settings-input-password'
+                                onChange={(e) => setPassword(e.target.value)}
+                                type='password'
+                                placeholder='Enter password'
+                            ></input>
+                            <input className='settings-input'
+                                onChange={(e) => setRepeatPassword(e.target.value)}
+                                type='password'
+                                placeholder='Confirm password'
+                            ></input>
+
+                            <div className='save-settings-button' onClick={(e) => onSubmit({ username, email, password, repeatPassword })}>Save</div>
 
                             <div className='settings-label'>Avatar</div>
                             <div className='avatar-settings-container'></div>
@@ -138,13 +180,11 @@ const EditProfile = () => {
                                 }}>
                                 </div>
 
-                                <button type='submit'>Submit</button>
                             </form>
+                            <button className='save-avatar-button' type='submit'>Submit</button>
                             <div>
 
                             </div>
-
-                            <div className='save-settings-button'>Button</div>
 
                         </div>
 

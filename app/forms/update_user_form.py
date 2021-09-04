@@ -3,7 +3,6 @@ from wtforms import StringField
 from wtforms.validators import DataRequired, Email, ValidationError
 from app.models import User
 
-
 def user_exists(form, field):
     # Checking if user exists
     email = field.data
@@ -19,6 +18,7 @@ def username_exists(form, field):
     if user:
         raise ValidationError('Username is already in use.')
 
+
 def password_match(form, field):
     # Checking if passwords match
     password = field.data
@@ -27,7 +27,7 @@ def password_match(form, field):
         raise ValidationError('Passwords do not match.')
 
 
-class SignUpForm(FlaskForm):
+class UpdateUserForm(FlaskForm):
     username = StringField(
         'username', validators=[DataRequired(message='Username is required'), username_exists])
     email = StringField('email', validators=[DataRequired(message='Email is required'), user_exists])

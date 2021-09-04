@@ -97,6 +97,34 @@ export const signUp = (username, email, password, repeatPassword) => async (disp
   }
 }
 
+export const updateUser = (username, email, password, repeatPassword, userId) => async (dispatch) => {
+  const response = await fetch(`/api/users/${userId}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      username,
+      email,
+      password,
+      repeatPassword
+    }),
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(setUser(data))
+    return null;
+  } else {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  }
+}
+
+
+
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
