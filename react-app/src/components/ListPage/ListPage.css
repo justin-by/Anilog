@@ -68,7 +68,7 @@
 .list-title {
     color: #a0b1c5;
     text-align: left;
-    margin-left: 7px;
+    margin-left: 45px;
     font-size: 1.1rem;
     font-weight: 400;
     margin-top: 5px;
@@ -85,9 +85,14 @@
 .list-entry-row {
     margin: 0 auto;
     margin-top: 10px;
-    width: 95%;
+    width: 85%;
     height: 40px;
     display: flex;
+}
+
+.list-entry-cover {
+    width: 40px;
+    height: 40px;
 }
 
 .list-entry-img {
@@ -104,22 +109,26 @@
 
 .list-entry-title {
     color: #a0b1c5;
-    position: absolute;
-    left: 140px;
     font-size: 1.0rem;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin-left: 7px;
+}
+
+.list-entry-score {
+    color: #a0b1c5;
+    font-size: 1.2rem;
     height: 40px;
     display: flex;
     align-items: center;
 }
 
-.list-entry-score {
-    color: #a0b1c5;
-    position: relative;
-    left: 835px;
-    font-size: 1.2rem;
-    height: 40px;
+.list-entry-info-holder {
+    width: 100%;
+    height: 100%;
     display: flex;
-    align-items: center;
+    justify-content: space-between;
 }
 
 .filter-list-box {

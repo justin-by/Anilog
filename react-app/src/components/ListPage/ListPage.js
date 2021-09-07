@@ -84,15 +84,20 @@ const ListPage = () => {
 
                                             </div>
                                         </div>
-                                        <div className='list-entry-title'>
-                                            <span className='anime-list-title' onClick={(e) => history.push(`/anime/${anime.anime.id}`)}>
-                                                {anime.anime.title}
-                                            </span>
+                                        <div className='list-entry-info-holder'>
+
+                                            <div className='list-entry-title'>
+                                                <span className='anime-list-title' onClick={(e) => history.push(`/anime/${anime.anime.id}`)}>
+                                                    {anime.anime.title}
+                                                </span>
+                                            </div>
+                                            {anime.rating > 1 ?
+                                                <div className='list-entry-score'>
+                                                    {anime.rating}/10
+                                                </div> : null}
+
+
                                         </div>
-                                        {anime.rating > 1 ?
-                                            <div className='list-entry-score'>
-                                                {anime.rating}/10
-                                            </div> : null}
 
                                     </div>
                                 </>
