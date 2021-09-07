@@ -154,13 +154,13 @@
     transform-origin: center top;
     z-index: 1;
     position: absolute;
-    top: 160px;
-    left: 790px;
     border: 0;
     box-shadow: 0 1px 10px 0 rgb(49 54 68 / 15%);
     overflow: initial;
     border-radius: 5px;
     user-select: none;
+    margin-top: 29px;
+    margin-left: -90px;
 }
 
 .genres-dropdown-select {
@@ -186,13 +186,13 @@
     transform-origin: center top;
     z-index: 1;
     position: absolute;
-    top: 160px;
-    left: 980px;
     border: 0;
     box-shadow: 0 1px 10px 0 rgb(49 54 68 / 15%);
     overflow: initial;
     border-radius: 5px;
     user-select: none;
+    margin-top: 29px;
+    margin-left: -90px;
 }
 
 .years-dropdown-select {
@@ -218,13 +218,13 @@
     transform-origin: center top;
     z-index: 1;
     position: absolute;
-    top: 160px;
-    left: 1170px;
     border: 0;
     box-shadow: 0 1px 10px 0 rgb(49 54 68 / 15%);
     overflow: initial;
     border-radius: 5px;
     user-select: none;
+    margin-top: 29px;
+    margin-left: -90px;
 }
 
 .season-filter-dropdown-select {
