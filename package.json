@@ -1,8 +1,0 @@
-{
-    "cacheDirectories": [
-      "client/node_modules"
-    ],
-    "scripts": {
-      "heroku-postbuild": "cd react-app && npm install && npm start"
-    }
-  }
