@@ -7,7 +7,7 @@ This site presents two main features:
 - Viewing and filtering anime
 - Organizing anime onto a user's personal list
 
-Live Site: https://anilog-proj.herokuapp.com/
+Live Site: https://aqueous-garden-01113-f8133b32b5aa.herokuapp.com/
 
 <br>
 
