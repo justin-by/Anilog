@@ -1,1 +1,1 @@
-web: cd react-app && npm start
+web: gunicorn app:app
