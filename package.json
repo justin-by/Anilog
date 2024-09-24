@@ -3,6 +3,6 @@
       "client/node_modules"
     ],
     "scripts": {
-      "heroku-postbuild": "cd react-app && npm install && npm run build"
+      "heroku-postbuild": "cd react-app && npm install && npm start"
     }
   }
