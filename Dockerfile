@@ -4,7 +4,7 @@ WORKDIR /react-app
 COPY react-app/. .
 
 # You have to set this because it should be set during build time.
-ENV anilog-daa2ccee510a.herokuapp.com=<Your-REACT_APP_BASE_URL-here>
+ENV aqueous-garden-01113-f8133b32b5aa.herokuapp.com=<Your-REACT_APP_BASE_URL-here>
 
 # Build our React App
 RUN npm install
