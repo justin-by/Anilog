@@ -1,1 +1,1 @@
-web: npm start --prefix app
+web: gunicorn app:app
